@@ -47,9 +47,10 @@ public class Ventana2 {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setBackground(Color.GREEN);
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLayout(null);
+		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null);
 		
 		
@@ -60,13 +61,13 @@ public class Ventana2 {
 				JFrame jf= new JFrame();
 					jf.setBounds(100, 100, 500, 400);
 					jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-					jf.setLayout(null);
+					jf.getContentPane().setLayout(null);
 					jf.setLocationRelativeTo(null);
 					
 					JFileChooser chooser= new JFileChooser();
 					chooser.setBounds(0, 0, 500, 400);
 					
-					jf.add(chooser);
+					jf.getContentPane().add(chooser);
 					
 					
 				jf.setVisible(true);
