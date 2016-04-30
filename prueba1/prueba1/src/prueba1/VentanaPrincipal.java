@@ -5,10 +5,12 @@ import java.awt.EventQueue;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import java.awt.BorderLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
 import java.awt.Color;
 import javax.swing.JToolBar;
@@ -17,14 +19,16 @@ import javax.swing.JTable;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.Font;
+import javax.swing.ScrollPaneConstants;
 
 public class VentanaPrincipal {
 
 	private JFrame frame;
-	private JTable table;
 	private JToolBar toolBar;
-	private JScrollPane scrollPane;
+	private JScrollPane scroll_ramas;
 	private JDesktopPane desktopPane;
+	private JScrollPane scroll_tablas;
+	private JTable tabla;
 
 	/**
 	 * Launch the application.
@@ -72,63 +76,29 @@ public class VentanaPrincipal {
 				.addComponent(desktopPane, GroupLayout.DEFAULT_SIZE, 695, Short.MAX_VALUE)
 		);
 		
-		scrollPane = new JScrollPane();
+		scroll_ramas = new JScrollPane();
 		
 		toolBar = new JToolBar();
 		toolBar.setFloatable(false);
 		
-		table = new JTable();
-		table.setEnabled(false);
-		table.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-			},
-			new String[] {
-				"New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column"
-			}
-		));
-		table.setFillsViewportHeight(true);
-		table.setCellSelectionEnabled(true);
-		table.setColumnSelectionAllowed(true);
-		table.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		JLabel logo= new JLabel(new ImageIcon("imagenes/logocompany.jpg"));
+		toolBar.add(logo, 0);
+		
+		scroll_tablas = new JScrollPane();
+		scroll_tablas.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scroll_tablas.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		
+		scroll_tablas.setViewportView(tabla);
+		
 		GroupLayout gl_desktopPane = new GroupLayout(desktopPane);
 		gl_desktopPane.setHorizontalGroup(
 			gl_desktopPane.createParallelGroup(Alignment.LEADING)
 				.addComponent(toolBar, GroupLayout.DEFAULT_SIZE, 1344, Short.MAX_VALUE)
 				.addGroup(gl_desktopPane.createSequentialGroup()
-					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 292, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap()
+					.addComponent(scroll_ramas, GroupLayout.PREFERRED_SIZE, 302, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(table, GroupLayout.DEFAULT_SIZE, 1036, Short.MAX_VALUE)
+					.addComponent(scroll_tablas, GroupLayout.DEFAULT_SIZE, 1016, Short.MAX_VALUE)
 					.addContainerGap())
 		);
 		gl_desktopPane.setVerticalGroup(
@@ -136,11 +106,46 @@ public class VentanaPrincipal {
 				.addGroup(gl_desktopPane.createSequentialGroup()
 					.addComponent(toolBar, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_desktopPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 571, GroupLayout.PREFERRED_SIZE)
-						.addComponent(table, GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE))
-					.addContainerGap())
+					.addGroup(gl_desktopPane.createParallelGroup(Alignment.LEADING, false)
+						.addComponent(scroll_tablas)
+						.addComponent(scroll_ramas, GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE))
+					.addGap(68))
 		);
+		
+		tabla = new JTable();
+		tabla.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+			},
+			new String[] {
+				"New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column"
+			}
+		));
+		tabla.setRowHeight(60);
+		int columnas=tabla.getColumnCount();
+		for(int i=0; i<columnas;i++) tabla.getColumnModel().getColumn(i).setMinWidth(200);
+		tabla.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		
+		scroll_tablas.setViewportView(tabla);
 		desktopPane.setLayout(gl_desktopPane);
 		frame.getContentPane().setLayout(groupLayout);
 	}
