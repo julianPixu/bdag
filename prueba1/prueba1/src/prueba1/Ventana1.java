@@ -91,9 +91,9 @@ public class Ventana1 {
 		titulo= new JLabel("DB2C");
 		titulo.setForeground(SystemColor.text);
 		titulo.setHorizontalAlignment(SwingConstants.CENTER);
-		titulo.setFont(new Font("Cooper Std Black", Font.PLAIN, 90));
+		titulo.setFont(new Font("Monotype Corsiva", Font.BOLD, 99));
 		titulo.setBounds(50, 50, 500, 200);
-		titulo.setBorder(BorderFactory.createEmptyBorder(80,160,0,50));
+		titulo.setBorder(BorderFactory.createEmptyBorder(80,170,0,50));
 		
 		label.add(titulo);
 		
