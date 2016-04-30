@@ -101,7 +101,7 @@ public class Ventana1 {
 	
 				Image icarga= new ImageIcon("imagenes/loading_bar.gif").getImage();
 		carga=new JLabel(new ImageIcon(icarga));
-		carga.setBorder(BorderFactory.createEmptyBorder(35,75,50,50));
+		carga.setBorder(BorderFactory.createEmptyBorder(35,75,38,50));
 		label.add(carga);
 		
 		label.setLayout(new BoxLayout(label, BoxLayout.Y_AXIS));
@@ -110,7 +110,7 @@ public class Ventana1 {
 		acons = new JLabel(new ImageIcon(iacons));
 		acons.setVerticalAlignment(SwingConstants.BOTTOM);
 		acons.setBounds(0, 0, 60, 40);
-		acons.setBorder(BorderFactory.createEmptyBorder(15,530,50,50));
+		acons.setBorder(BorderFactory.createEmptyBorder(12,530,50,50));
 		label.add(acons);
 		
 		
