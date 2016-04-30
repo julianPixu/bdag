@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Image;
 import java.awt.LayoutManager;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.GroupLayout;
@@ -69,6 +70,8 @@ public class Ventana2 {
 		frame.getContentPane().setBackground(new Color(100, 192, 45));
 		frame.setBounds(100, 100, 600, 220);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("imagenes/logoicon.jpg").getScaledInstance(570, 570, Image.SCALE_SMOOTH));
+		frame.setTitle("DB2C");
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null);
 		

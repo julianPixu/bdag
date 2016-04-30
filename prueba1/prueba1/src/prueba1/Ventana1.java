@@ -70,7 +70,7 @@ public class Ventana1 {
 		frmDbc.setResizable(false);
 		frmDbc.setTitle("DB2C");
 		
-		frmDbc.setIconImage(Toolkit.getDefaultToolkit().getImage("imagenes/logocompany.jpg"));
+		frmDbc.setIconImage(Toolkit.getDefaultToolkit().getImage("imagenes/logoicon.jpg").getScaledInstance(570, 570, Image.SCALE_SMOOTH));
 		frmDbc.setBounds(20, 20, 600, 400);
 		frmDbc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmDbc.setLocationRelativeTo(null);
@@ -98,7 +98,6 @@ public class Ventana1 {
 		label.add(titulo);
 		
 		
-
 	
 				Image icarga= new ImageIcon("imagenes/loading_bar.gif").getImage();
 		carga=new JLabel(new ImageIcon(icarga));
