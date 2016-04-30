@@ -139,10 +139,6 @@ public class Ventana2 {
 		btnContinuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null, "Aqui entramos en el programa pofin!");
-				String[] args= new String[1];
-				args[0]= label_fichero.getText();
-				VentanaPrincipal.main(args);
-				frame.dispose();
 			}
 		});
 		btnContinuar.setEnabled(false);
