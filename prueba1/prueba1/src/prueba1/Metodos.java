@@ -7,6 +7,8 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**Esta clase contiene los métodos genéricos para aplicar en la app
  * 
@@ -27,6 +29,15 @@ public class Metodos {
 		} catch (IOException e2) {	System.out.println("Error al insertar fondo"); }
 		
 		return fondo;
+	}
+	
+	public static void rellenaTabla(JTable table, String[] colName, Object[][] data){
+		
+		table.setModel(new DefaultTableModel(data, colName));
+		int columnas= table.getColumnCount();
+		table.setRowHeight(40);	
+		for(int i=0; i<columnas;i++) table.getColumnModel().getColumn(i).setMinWidth(200);
+		table.setVisible(true);
 	}
 
 }

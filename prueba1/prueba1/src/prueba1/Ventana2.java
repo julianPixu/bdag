@@ -108,7 +108,7 @@ public class Ventana2 {
 					if(nombre.endsWith("txt")){
 						btnContinuar.setEnabled(true);
 						label_error.setVisible(false);
-						Image img=new ImageIcon("imagenes/ok.jpg").getImage().getScaledInstance(38, 33, Image.SCALE_SMOOTH);
+						Image img=new ImageIcon("imagenes/ook.jpg").getImage().getScaledInstance(38, 33, Image.SCALE_SMOOTH);
 						icono.setIcon(new ImageIcon(img));
 						
 					}else{

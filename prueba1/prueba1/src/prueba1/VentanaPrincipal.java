@@ -3,9 +3,12 @@ package prueba1;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import java.awt.BorderLayout;
 import javax.swing.GroupLayout;
@@ -66,9 +69,25 @@ public class VentanaPrincipal {
 		frame.setContentPane(background);
 		
 		JToolBar toolBar = new JToolBar();
+		toolBar.setFloatable(false);
 		toolBar.setBackground(Color.BLACK);
+		
+		Font fuente =new Font("Serif",Font.BOLD,16);
 		JLabel logo= Metodos.CreaFondo("logoicon.jpg", 60, 45);
 		toolBar.add(logo, 0);
+		JLabel archivo= new JLabel("Archivo");
+		archivo.setForeground(Color.WHITE);
+		archivo.setFont(fuente);
+		archivo.addMouseListener(new MouseAdapter(){
+			@Override
+			public void mouseClicked(MouseEvent e){
+				JOptionPane.showMessageDialog(null, "Has pulsado Archivo maan!");
+			}
+		});
+		JLabel espacio= new JLabel("       ");
+		toolBar.add(espacio,1);
+		toolBar.add(archivo,2);
+		
 		 
 		JScrollPane scrollRamas = new JScrollPane();
 		scrollRamas.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
