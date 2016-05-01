@@ -115,6 +115,7 @@ public class Ventana2 {
 						label_error.setVisible(true);
 						Image img=new ImageIcon("imagenes/no_ok.jpg").getImage().getScaledInstance(38, 33, Image.SCALE_SMOOTH);
 						icono.setIcon(new ImageIcon(img));
+						btnContinuar.setEnabled(false);
 					}
 					
 					
@@ -131,7 +132,7 @@ public class Ventana2 {
 		
 		label1 = new JLabel("Busque la base de datos sobre la que trabajar:");
 		
-		label_error = new JLabel("El fichero escogido no es una BBDD MySQL, MongoDB o Excel");
+		label_error = new JLabel("* El fichero escogido no es una BBDD MySQL, MongoDB o Excel");
 		label_error.setForeground(Color.RED);
 		label_error.setVisible(false);
 		
@@ -159,27 +160,24 @@ public class Ventana2 {
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(22)
+					.addContainerGap()
+					.addComponent(icono, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(label1, GroupLayout.PREFERRED_SIZE, 334, GroupLayout.PREFERRED_SIZE)
-							.addGap(168))
+							.addComponent(btnContinuar, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE)
+							.addGap(18)
+							.addComponent(btnCancelar, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(icono, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
-							.addGap(18)
 							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(btnContinuar, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE)
-									.addGap(18)
-									.addComponent(btnCancelar, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED))
-								.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
-									.addComponent(label_fichero, GroupLayout.PREFERRED_SIZE, 329, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+									.addComponent(label_fichero, GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
+									.addGap(14)
 									.addComponent(btnExaminar, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE))
+								.addComponent(label1, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 334, GroupLayout.PREFERRED_SIZE)
 								.addComponent(label_error, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 351, GroupLayout.PREFERRED_SIZE))))
-					.addContainerGap(37, Short.MAX_VALUE))
+					.addGap(34))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -187,17 +185,20 @@ public class Ventana2 {
 					.addContainerGap()
 					.addComponent(label1, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-						.addComponent(btnExaminar, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(icono, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
-						.addComponent(label_fichero, GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
+						.addComponent(label_fichero, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(btnExaminar, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(label_error, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnContinuar, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnCancelar, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
+						.addComponent(btnCancelar, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnContinuar, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
 					.addGap(16))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(26)
+					.addComponent(icono, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(110, Short.MAX_VALUE))
 		);
 		frame.getContentPane().setLayout(groupLayout);
 	}
