@@ -7,6 +7,7 @@ import java.awt.LayoutManager;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
+import javax.imageio.ImageIO;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
@@ -22,12 +23,14 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
 public class Ventana2 {
 
 	private JFrame frame;
+	private JLabel background;
 	private JButton btnExaminar;
 	private JLabel label_fichero;
 	private JLabel label_error;
@@ -67,13 +70,14 @@ public class Ventana2 {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(100, 192, 45));
 		frame.setBounds(100, 100, 600, 220);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("imagenes/logoicon.jpg").getScaledInstance(570, 570, Image.SCALE_SMOOTH));
 		frame.setTitle("DB2C");
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null);
+		background= Metodos.CreaFondo("fondo.jpg",600,220);
+		frame.setContentPane(background);
 		
 		
 		btnExaminar = new JButton("EXAMINAR");

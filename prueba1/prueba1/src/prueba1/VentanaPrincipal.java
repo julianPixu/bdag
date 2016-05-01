@@ -24,10 +24,7 @@ import javax.swing.ScrollPaneConstants;
 public class VentanaPrincipal {
 
 	private JFrame frame;
-	private JToolBar toolBar;
-	private JScrollPane scroll_ramas;
-	private JDesktopPane desktopPane;
-	private JScrollPane scroll_tablas;
+	private JLabel background;
 	private JTable tabla;
 
 	/**
@@ -64,89 +61,65 @@ public class VentanaPrincipal {
 		frame.setBounds(0,0, pantalla.width, (pantalla.height-35));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("DB2C: "+s);
-		desktopPane = new JDesktopPane();
-		desktopPane.setBackground(Color.GREEN);
+		
+		background= Metodos.CreaFondo("fondo.jpg",pantalla.width, (pantalla.height-35));
+		frame.setContentPane(background);
+		
+		JToolBar toolBar = new JToolBar();
+		toolBar.setBackground(Color.BLACK);
+		JLabel logo= Metodos.CreaFondo("logoicon.jpg", 60, 45);
+		toolBar.add(logo, 0);
+		 
+		JScrollPane scrollRamas = new JScrollPane();
+		scrollRamas.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		
+		JScrollPane scrollTabla = new JScrollPane();
+		scrollTabla.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollTabla.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		
+		
+		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addComponent(desktopPane, GroupLayout.DEFAULT_SIZE, 1344, Short.MAX_VALUE)
+				.addComponent(toolBar, GroupLayout.DEFAULT_SIZE, 1344, Short.MAX_VALUE)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(10)
+					.addComponent(scrollRamas, GroupLayout.PREFERRED_SIZE, 271, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(scrollTabla, GroupLayout.DEFAULT_SIZE, 1035, Short.MAX_VALUE)
+					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addComponent(desktopPane, GroupLayout.DEFAULT_SIZE, 695, Short.MAX_VALUE)
-		);
-		
-		scroll_ramas = new JScrollPane();
-		
-		toolBar = new JToolBar();
-		toolBar.setFloatable(false);
-		
-		JLabel logo= new JLabel(new ImageIcon("imagenes/logocompany.jpg"));
-		toolBar.add(logo, 0);
-		
-		scroll_tablas = new JScrollPane();
-		scroll_tablas.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-		scroll_tablas.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-		
-		scroll_tablas.setViewportView(tabla);
-		
-		GroupLayout gl_desktopPane = new GroupLayout(desktopPane);
-		gl_desktopPane.setHorizontalGroup(
-			gl_desktopPane.createParallelGroup(Alignment.LEADING)
-				.addComponent(toolBar, GroupLayout.DEFAULT_SIZE, 1344, Short.MAX_VALUE)
-				.addGroup(gl_desktopPane.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(scroll_ramas, GroupLayout.PREFERRED_SIZE, 302, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(scroll_tablas, GroupLayout.DEFAULT_SIZE, 1016, Short.MAX_VALUE)
-					.addContainerGap())
-		);
-		gl_desktopPane.setVerticalGroup(
-			gl_desktopPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_desktopPane.createSequentialGroup()
-					.addComponent(toolBar, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_desktopPane.createParallelGroup(Alignment.LEADING, false)
-						.addComponent(scroll_tablas)
-						.addComponent(scroll_ramas, GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE))
-					.addGap(68))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addComponent(toolBar, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addComponent(scrollTabla)
+						.addComponent(scrollRamas, GroupLayout.PREFERRED_SIZE, 514, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(119, Short.MAX_VALUE))
 		);
 		
 		tabla = new JTable();
 		tabla.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
 			},
 			new String[] {
-				"New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column"
+				"New column", "New column", "New column", "New column", "New column"
 			}
 		));
-		tabla.setRowHeight(60);
-		int columnas=tabla.getColumnCount();
-		for(int i=0; i<columnas;i++) tabla.getColumnModel().getColumn(i).setMinWidth(200);
-		tabla.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		scrollTabla.setViewportView(tabla);
 		
-		scroll_tablas.setViewportView(tabla);
-		desktopPane.setLayout(gl_desktopPane);
+		int columnas= tabla.getColumnCount();
+		tabla.setRowHeight(40);	
+		for(int i=0; i<columnas;i++) tabla.getColumnModel().getColumn(i).setMinWidth(200);
+		
 		frame.getContentPane().setLayout(groupLayout);
 	}
 }
