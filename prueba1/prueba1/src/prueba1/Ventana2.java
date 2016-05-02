@@ -97,7 +97,7 @@ public class Ventana2 {
 					chooser.setBounds(0, 0, 500, 400);
 					chooser.addChoosableFileFilter(new FileNameExtensionFilter("MySQL database", "sql"));
 					chooser.addChoosableFileFilter(new FileNameExtensionFilter("Excel 97-2003", "xls"));
-					chooser.addChoosableFileFilter(new FileNameExtensionFilter("Excel 2007", "xlsx"));
+					chooser.addChoosableFileFilter(new FileNameExtensionFilter("Excel 2007 & later", "xlsx"));
 					//chooser.addChoosableFileFilter(new FileNameExtensionFilter("MongoDB database", "sql"));
 				
 				if(chooser.showOpenDialog(chooser)==JFileChooser.APPROVE_OPTION){

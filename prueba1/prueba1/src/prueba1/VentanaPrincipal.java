@@ -28,7 +28,7 @@ public class VentanaPrincipal {
 
 	private JFrame frame;
 	private JLabel background;
-	private JTable tabla;
+	private static JTable tabla;
 
 	/**
 	 * Launch the application.
@@ -81,11 +81,12 @@ public class VentanaPrincipal {
 		archivo.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseClicked(MouseEvent e){
-				JOptionPane.showMessageDialog(null, "Has pulsado Archivo maan!");
+				JOptionPane.showMessageDialog(null, "Ahora veras la tablaaa!!!");
 			}
 		});
-		JLabel espacio= new JLabel("       ");
-		toolBar.add(espacio,1);
+		//JLabel espacio= new JLabel("       ");
+		//toolBar.add(espacio,1);
+		toolBar.addSeparator();
 		toolBar.add(archivo,2);
 		
 		 
@@ -95,6 +96,7 @@ public class VentanaPrincipal {
 		JScrollPane scrollTabla = new JScrollPane();
 		scrollTabla.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scrollTabla.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		
 		
 		
 		
@@ -130,7 +132,7 @@ public class VentanaPrincipal {
 				{null, null, null, null, null},
 			},
 			new String[] {
-				"New column", "New column", "New column", "New column", "New column"
+				" ", " ", " ", " ", " "
 			}
 		));
 		scrollTabla.setViewportView(tabla);
@@ -138,7 +140,8 @@ public class VentanaPrincipal {
 		int columnas= tabla.getColumnCount();
 		tabla.setRowHeight(40);	
 		for(int i=0; i<columnas;i++) tabla.getColumnModel().getColumn(i).setMinWidth(200);
-		
+		tabla.setVisible(false);
+		//tabla.setBackground(Color.decode("#A7FF4F"));
 		frame.getContentPane().setLayout(groupLayout);
 	}
 }
