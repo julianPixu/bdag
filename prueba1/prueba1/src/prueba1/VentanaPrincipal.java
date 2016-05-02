@@ -23,12 +23,17 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.Font;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.JPanel;
 
 public class VentanaPrincipal {
 
 	private JFrame frame;
 	private JLabel background;
 	private static JTable tabla;
+	private JPanel cont_ramas;
+	private JLabel labelBbdd;
+	private JScrollPane scrollTabla;
+	private JToolBar toolBar;
 
 	/**
 	 * Launch the application.
@@ -65,10 +70,10 @@ public class VentanaPrincipal {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("DB2C: "+s);
 		
-		background= Metodos.CreaFondo("fondo.jpg",pantalla.width, (pantalla.height-35));
-		frame.setContentPane(background);
+		//background= Metodos.CreaFondo("fondo.jpg",pantalla.width, (pantalla.height-35));
+		//frame.setContentPane(background);
 		
-		JToolBar toolBar = new JToolBar();
+		toolBar = new JToolBar();
 		toolBar.setFloatable(false);
 		toolBar.setBackground(Color.BLACK);
 		
@@ -93,7 +98,7 @@ public class VentanaPrincipal {
 		JScrollPane scrollRamas = new JScrollPane();
 		scrollRamas.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		
-		JScrollPane scrollTabla = new JScrollPane();
+		scrollTabla = new JScrollPane();
 		scrollTabla.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scrollTabla.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		
@@ -121,6 +126,15 @@ public class VentanaPrincipal {
 						.addComponent(scrollRamas, GroupLayout.PREFERRED_SIZE, 514, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap(119, Short.MAX_VALUE))
 		);
+		
+		cont_ramas = new JPanel();
+		scrollRamas.setViewportView(cont_ramas);
+		cont_ramas.setLayout(null);
+		
+		labelBbdd = new JLabel("Nombre BBDD");
+		labelBbdd.setFont(new Font("SansSerif", Font.BOLD, 15));
+		labelBbdd.setBounds(10, 11, 232, 28);
+		cont_ramas.add(labelBbdd);
 		
 		tabla = new JTable();
 		tabla.setModel(new DefaultTableModel(
