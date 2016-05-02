@@ -76,11 +76,13 @@ public class Ventana2 {
 		frame.setTitle("DB2C");
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null);
-		background= Metodos.CreaFondo("fondo.jpg",600,220);
-		frame.setContentPane(background);
+		//background= Metodos.CreaFondo("fondo.jpg",600,220);
+		//frame.setContentPane(background);
 		
 		
-		btnExaminar = new JButton("EXAMINAR");
+		//btnExaminar = Metodos.creaBoton("look.jpg");
+		//btnExaminar= new JButton();
+		
 		btnExaminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -105,6 +107,7 @@ public class Ventana2 {
 					String nombre= fichero.getName();
 					label_fichero.setText(fichero.getName());
 					
+					
 					if(nombre.endsWith("txt")){
 						btnContinuar.setEnabled(true);
 						label_error.setVisible(false);
@@ -128,6 +131,7 @@ public class Ventana2 {
 		label_fichero.setBackground(Color.WHITE);
 		label_fichero.setOpaque(true);
 		
+		
 		icono=new JLabel();
 		
 		label1 = new JLabel("Busque la base de datos sobre la que trabajar:");
@@ -135,15 +139,17 @@ public class Ventana2 {
 		label_error = new JLabel("* El fichero escogido no es una BBDD MySQL, MongoDB o Excel");
 		label_error.setForeground(Color.RED);
 		label_error.setVisible(false);
-		
-		btnCancelar = new JButton("CANCELAR");
+	
+		btnCancelar= new JButton();
+		//btnCancelar = Metodos.creaBoton("cancel.jpg");
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.exit(0);
 			}
 		});
 		
-		btnContinuar = new JButton("CONTINUAR");
+		//btnContinuar = Metodos.creaBoton("conti.jpg");
+		btnContinuar= new JButton();
 		btnContinuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null, "Aqui entramos en el programa pofin!");
@@ -163,42 +169,47 @@ public class Ventana2 {
 					.addContainerGap()
 					.addComponent(icono, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(btnContinuar, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE)
-							.addGap(18)
-							.addComponent(btnCancelar, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(label_fichero, GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
-									.addGap(14)
-									.addComponent(btnExaminar, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE))
-								.addComponent(label1, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 334, GroupLayout.PREFERRED_SIZE)
-								.addComponent(label_error, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 351, GroupLayout.PREFERRED_SIZE))))
-					.addGap(34))
+									.addComponent(btnContinuar, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addComponent(btnCancelar, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE))
+								.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+									.addComponent(label_fichero, GroupLayout.PREFERRED_SIZE, 345, GroupLayout.PREFERRED_SIZE)
+									.addGap(18)
+									.addComponent(btnExaminar, GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(label1, GroupLayout.PREFERRED_SIZE, 334, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED, 147, Short.MAX_VALUE)))
+							.addGap(30))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(label_error, GroupLayout.PREFERRED_SIZE, 197, Short.MAX_VALUE)
+							.addGap(164))))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(label1, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
-						.addComponent(label_fichero, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(btnExaminar, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(label_error, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnCancelar, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnContinuar, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
-					.addGap(16))
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(26)
-					.addComponent(icono, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(110, Short.MAX_VALUE))
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(label1, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(label_fichero, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(label_error, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE))
+								.addComponent(btnExaminar))
+							.addPreferredGap(ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+								.addComponent(btnCancelar, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnContinuar, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(20)
+							.addComponent(icono, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap())
 		);
 		frame.getContentPane().setLayout(groupLayout);
 	}
