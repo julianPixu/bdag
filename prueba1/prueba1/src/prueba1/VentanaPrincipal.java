@@ -78,7 +78,7 @@ public class VentanaPrincipal {
 		toolBar.setBackground(Color.BLACK);
 		
 		Font fuente =new Font("Serif",Font.BOLD,16);
-		JLabel logo= Metodos.CreaFondo("logoicon.jpg", 60, 45);
+		JLabel logo= Metodos.creaImagen("logoicon.jpg", 60, 45);
 		toolBar.add(logo, 0);
 		JLabel archivo= new JLabel("Archivo");
 		archivo.setForeground(Color.WHITE);

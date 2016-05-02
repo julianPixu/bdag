@@ -2,12 +2,14 @@ package prueba1;
 
 import java.awt.Image;
 import java.awt.Insets;
+import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -19,7 +21,25 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Metodos {
 	
-	public static JLabel CreaFondo(String imagen, int width, int height){
+	public static JFrame creaVentana(String title, int width, int height){
+		
+		JFrame frame= new JFrame();
+		frame.setBounds(100, 100, width, height);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("imagenes/logoicon.jpg").getScaledInstance(570, 570, Image.SCALE_SMOOTH));
+		frame.setTitle(title);
+		frame.getContentPane().setLayout(null);
+		frame.setLocationRelativeTo(null);
+		frame.setLayout(null);
+		JLabel background= Metodos.creaImagen("fondo.jpg",width, height);
+		frame.setContentPane(background);
+
+		
+		return frame;
+		
+	}
+	
+	public static JLabel creaImagen(String imagen, int width, int height){
 		
 		JLabel fondo=new JLabel();
 		try {
