@@ -6,7 +6,11 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
@@ -29,21 +33,23 @@ public class MySqlMethods {
 	private static Connection conexion;
 	
 	
-	public static void connect(String path){
+	public static void connect(final String [] path){
 		
-		final File f= new File(path);
-		final JFrame frame= Metodos.creaVentana("Conéctese a la BBDD:", 500, 220);
+		final File f= new File(path[1]);
+		final JFrame frame= Metodos.creaVentana("Conéctese a la BBDD: "+path[0], 500, 220);
 		
-		JLabel lb1=new JLabel("usuario:"), lb2= new JLabel("contraseña:");
-		Font font= new Font("Serif", Font.BOLD, 16);
+		JLabel lb1=new JLabel("Usuario:"), lb2= new JLabel("Contraseña:");
+		Font font= new Font("Serif", Font.BOLD, 18);
 			lb1.setBounds(50,10,150,40);
 			lb1.setFont(font);
+			lb1.setForeground(Color.WHITE);
 			lb2.setBounds(50,60,150,40);
 			lb2.setFont(font);
+			lb2.setForeground(Color.WHITE);
 		final JTextField field_user= new JTextField();
 		final JTextField field_pswd=new JTextField();
-			field_user.setBounds(200,20,250,30);
-			field_pswd.setBounds(200,70,250,30);
+			field_user.setBounds(180,20,270,30);
+			field_pswd.setBounds(180,70,270,30);
 			
 		JButton continuar= Metodos.creaBoton("conti.jpg"), cancelar= Metodos.creaBoton("cancel.jpg");
 			continuar.setBounds(180, 130, 122, 45);
@@ -56,21 +62,35 @@ public class MySqlMethods {
 		frame.add(cancelar);
 	
 		frame.setVisible(true);
-		
+		final boolean b;
 		continuar.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				
 				try {
 					Class.forName("com.mysql.jdbc.Driver");
 					String user=field_user.getText(), pswd= field_pswd.getText();
-					conexion= DriverManager.getConnection("jdbc:mysql://localhost/"+f.getName(),user,pswd);
-							
+					BufferedReader br= new BufferedReader(new FileReader(path[1]));
+					String bd= br.readLine().replace("CREATE DATABASE ", "").replace(";", "");
+					String [] s= bd.split("¿");
+					br.close();
+					System.out.println(s[1]);
+					conexion= DriverManager.getConnection("jdbc:mysql://localhost/"+s[1],user,pswd);
+					frame.dispose();
+					VentanaPrincipal.main(path);
+					
+					
 				}catch (ClassNotFoundException e) { e.printStackTrace();
 				}catch(SQLException e){
 					JOptionPane.showMessageDialog(null, "usuario o contraseña incorrectos.");	
-					//e.printStackTrace();
-				}	
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 			}
+			
 		});
 		
 		cancelar.addActionListener(new ActionListener(){
@@ -81,12 +101,22 @@ public class MySqlMethods {
 		
 	}
 	
-	public static void rellenaPanelTablas(JPanel panel, JButton[] tablas, JLabel[] flechas){
+	public static JButton[] rellenaPanelTablas(String [] path,JPanel panel, JButton[] tablas, JLabel[] flechas){
 		
 		try {
 			
+			String [] bd= null;
+			try {
+				BufferedReader br= new BufferedReader(new FileReader(path[1]));
+				String s= br.readLine().replace("CREATE DATABASE ", "").replace(";", "");
+				bd= s.split("¿");
+				br.close();
+			} catch (FileNotFoundException e) {e.printStackTrace();
+			} catch (IOException e) {e.printStackTrace();}
+			
+			
 			Statement s= conexion.createStatement();
-			ResultSet res= s.executeQuery("");
+			ResultSet res= s.executeQuery("SELECT * FROM information_schema.tables WHERE table_schema='"+bd[1]+"';");
 			
 			res.last();
 			tablas= new JButton[res.getRow()];
@@ -94,12 +124,12 @@ public class MySqlMethods {
 			res.beforeFirst();
 			
 			while(res.next()){
-				int i=res.getRow();
+				int i=res.getRow()-1;
 				
 				flechas[i]= Metodos.creaImagen("arrow.jpg", 30, 30);
-				flechas[i].setBounds(30, i*40, 30,30);
+				flechas[i].setBounds(30, (i+1)*40, 30,30);
 				tablas[i]= new JButton(res.getString(3));
-				tablas[i].setBounds(65,i*40,120,30);
+				tablas[i].setBounds(65,(i+1)*40,120,30);
 				tablas[i].setContentAreaFilled(false);
 				tablas[i].setBorderPainted(false);
 							
@@ -113,6 +143,7 @@ public class MySqlMethods {
 		
 		
 		} catch (SQLException e) { e.printStackTrace(); }
+		return tablas;
 	}
 	
 	public static void rellenaTablas(final JTable tabla, final JButton[] botones){
@@ -130,22 +161,29 @@ public class MySqlMethods {
 					
 					try {
 						Statement s2= conexion.createStatement();
-						ResultSet rs= s2.executeQuery("SELECT * FROM "+e.getSource().toString());
+						System.out.println(e.getActionCommand());
+						ResultSet rs= s2.executeQuery("SELECT * FROM "+e.getActionCommand());
 						ResultSetMetaData rsmt= rs.getMetaData();
 						
 						rs.last();
 						int row= rs.getRow();
 						int col= rsmt.getColumnCount();
 						rs.beforeFirst();
-						
+						System.out.println("------------COLUMNAS--------------");
 						String[] columnas= new String[col];
-						for(int c=0; c<col; c++) columnas[c]= rsmt.getColumnName(c);
+						for(int c=0; c<col; c++){
+							columnas[c]= rsmt.getColumnName(c+1);
+							System.out.println(rsmt.getColumnName(c+1));
+						}
 						
 						Object[][] datos= new Object[row][col];
-						
+						System.out.println("------------DATOS--------------");
 						while(rs.next()){
-							int r= rs.getRow();
-							for(int c=0; c<col;c++) datos[r][c]= rs.getObject(c);
+							int r= rs.getRow()-1;
+							for(int c=0; c<col;c++){ 
+								datos[r][c]= rs.getObject(c+1);
+								System.out.println(rs.getObject(c+1));
+							}
 						}
 						
 						tabla.setModel(new DefaultTableModel(datos,columnas));
@@ -161,8 +199,8 @@ public class MySqlMethods {
 	
 	
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		connect("algo.txt");
-	}
+	}*/
 
 }

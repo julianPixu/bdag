@@ -39,23 +39,12 @@ import javax.swing.JPanel;
 public class VentanaPrincipal{
 
 	private static JFrame frame;
-	private JLabel background;
-	private static JTable tabla;
-	private JPanel cont_ramas;
-	private JLabel labelBbdd;
-	private JScrollPane scrollTabla;
-	private JToolBar toolBar;
-
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(final String[] args) {
 		
 		Dimension pantalla= Toolkit.getDefaultToolkit().getScreenSize();
 		Font fuente =new Font("Serif",Font.BOLD,20);
 		frame= Metodos.creaVentana("DB2C: "+args[0], pantalla.width, (pantalla.height-35));
-		
-		
 		
 		JToolBar toolBar = new JToolBar();
 			toolBar.setBounds(0, 0, pantalla.width, 30);
@@ -91,49 +80,15 @@ public class VentanaPrincipal{
 					labelBbdd.setFont(new Font("SansSerif", Font.BOLD, 15));
 					labelBbdd.setBounds(10, 10, 232, 28);
 					cont_ramas.add(labelBbdd);
-			
-				JLabel flecha1= Metodos.creaImagen("arrow.jpg", 30, 30);
-					flecha1.setBounds(30,40,30,30);
-				JLabel flecha2= Metodos.creaImagen("arrow.jpg", 30, 30);
-					flecha2.setBounds(30,80,30,30);
-				
-				
-				//ButtonGroup bg= new ButtonGroup();
-				final JButton[] tablas= new JButton[2];
-				
-				for(int i=0;i<tablas.length; i++){
-					tablas[i]= new JButton("Tabla"+i);
-					tablas[i].setBounds(65,(i+1)*40,120,30);
-					tablas[i].setContentAreaFilled(false);
-					tablas[i].setBorderPainted(false);
 					
-					//bg.add(tablas[i]);
-					cont_ramas.add(tablas[i]);
-					tablas[i].addActionListener(new ActionListener(){
-
-						@Override
-						public void actionPerformed(ActionEvent e) {
-							
-							for(int n=0; n<tablas.length;n++){
-								if(tablas[n]==e.getSource())tablas[n].setForeground(Color.GREEN);
-								else tablas[n].setForeground(Color.BLACK);
-							}	
-						}		
-					});
-				}
-				
-				cont_ramas.add(flecha1);
-				cont_ramas.add(flecha2);
-				//cont_ramas.add(bg);
-				//cont_ramas.add(tablas);
-				
-				
+				JButton[] tablas=new JButton[1]; JLabel[] flechas= new JLabel[1];
+				tablas= MySqlMethods.rellenaPanelTablas(args, cont_ramas, tablas, flechas);
 			
 		JScrollPane scrollTabla = new JScrollPane();
 			scrollTabla.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 			scrollTabla.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 			scrollTabla.setBounds((int)(pantalla.width*0.27),40, (int)(pantalla.width*0.71),600);
-			scrollTabla.setBackground(Color.decode("#E5F3D0"));
+			//scrollTabla.setBackground(Color.decode("#E5F3D0"));
 			
 			JTable table=new JTable();
 				scrollTabla.setViewportView(table);
@@ -179,123 +134,8 @@ public class VentanaPrincipal{
 		frame.add(scrollRamas);
 		frame.add(scrollTabla);
 		frame.setVisible(true);
-		/*EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaPrincipal window = new VentanaPrincipal(args[0]);
-					
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	
-	public VentanaPrincipal(String s) {
 		
-		initialize(s);
-	}
-
-
-	private void initialize(String s) {
-		
-		
-		
-		frame = new JFrame();
-		Dimension pantalla= Toolkit.getDefaultToolkit().getScreenSize();
-		frame.setBounds(0,0, pantalla.width, (pantalla.height-35));
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setTitle("DB2C: "+s);
-		
-		//background= Metodos.CreaFondo("fondo.jpg",pantalla.width, (pantalla.height-35));
-		//frame.setContentPane(background);
-		
-		toolBar = new JToolBar();
-		toolBar.setFloatable(false);
-		toolBar.setBackground(Color.BLACK);
-		
-		Font fuente =new Font("Serif",Font.BOLD,16);
-		JLabel logo= Metodos.creaImagen("logoicon.jpg", 60, 45);
-		toolBar.add(logo, 0);
-		JLabel archivo= new JLabel("Archivo");
-		archivo.setForeground(Color.WHITE);
-		archivo.setFont(fuente);
-		archivo.addMouseListener(new MouseAdapter(){
-			@Override
-			public void mouseClicked(MouseEvent e){
-				JOptionPane.showMessageDialog(null, "Ahora veras la tablaaa!!!");
-			}
-		});
-		//JLabel espacio= new JLabel("       ");
-		//toolBar.add(espacio,1);
-		toolBar.addSeparator();
-		toolBar.add(archivo,2);
-		
-		 
-		JScrollPane scrollRamas = new JScrollPane();
-		scrollRamas.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-		
-		scrollTabla = new JScrollPane();
-		scrollTabla.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-		scrollTabla.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-		
-		
-		
-		
-		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addComponent(toolBar, GroupLayout.DEFAULT_SIZE, 1344, Short.MAX_VALUE)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(10)
-					.addComponent(scrollRamas, GroupLayout.PREFERRED_SIZE, 271, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
-					.addComponent(scrollTabla, GroupLayout.DEFAULT_SIZE, 1035, Short.MAX_VALUE)
-					.addContainerGap())
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addComponent(toolBar, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(scrollTabla)
-						.addComponent(scrollRamas, GroupLayout.PREFERRED_SIZE, 514, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(119, Short.MAX_VALUE))
-		);
-		
-		cont_ramas = new JPanel();
-		scrollRamas.setViewportView(cont_ramas);
-		cont_ramas.setLayout(null);
-		
-		labelBbdd = new JLabel("Nombre BBDD");
-		labelBbdd.setFont(new Font("SansSerif", Font.BOLD, 15));
-		labelBbdd.setBounds(10, 11, 232, 28);
-		cont_ramas.add(labelBbdd);
-		
-		tabla = new JTable();
-		tabla.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-			},
-			new String[] {
-				" ", " ", " ", " ", " "
-			}
-		));
-		scrollTabla.setViewportView(tabla);
-		
-		int columnas= tabla.getColumnCount();
-		tabla.setRowHeight(40);	
-		for(int i=0; i<columnas;i++) tabla.getColumnModel().getColumn(i).setMinWidth(200);
-		tabla.setVisible(false);
-		//tabla.setBackground(Color.decode("#A7FF4F"));
-		frame.getContentPane().setLayout(groupLayout);*/
+		MySqlMethods.rellenaTablas(table, tablas);
 	}
 	
 }

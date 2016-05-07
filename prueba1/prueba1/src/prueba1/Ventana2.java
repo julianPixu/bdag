@@ -34,7 +34,7 @@ public class Ventana2 {
 	
 	public static void main(String[] args) {
 		
-			JFrame frame= Metodos.creaVentana("DB2C", 600,220);
+			final JFrame frame= Metodos.creaVentana("DB2C", 600,220);
 			UIManager.put("InternalFrame.activeTitleBackground", new ColorUIResource(Color.BLACK));
 			
 			final JButton btnExaminar, btnContinuar, btnCancelar;
@@ -87,7 +87,7 @@ public class Ventana2 {
 						label_fichero.setText(nombre);
 						path=fichero.getPath();
 						
-						if(nombre.endsWith("txt")){
+						if(nombre.endsWith("sql")){
 							btnContinuar.setEnabled(true);
 							label_error.setVisible(false);
 							Image img=new ImageIcon("imagenes/ook.jpg").getImage().getScaledInstance(38, 33, Image.SCALE_SMOOTH);
@@ -114,7 +114,12 @@ public class Ventana2 {
 					String[] args= new String[2];
 					args[0]= label_fichero.getText();
 					args[1]=path;
-					VentanaPrincipal.main(args);
+					if(args[0].endsWith("sql")){
+						frame.dispose();
+						MySqlMethods.connect(args);
+					}
+						
+					
 				}
 			});
 			btnContinuar.setEnabled(false);
