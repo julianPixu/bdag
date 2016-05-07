@@ -76,7 +76,7 @@ public class VentanaPrincipal{
 				cont_ramas.setBackground(Color.decode("#F2F2F2"));
 				scrollRamas.setViewportView(cont_ramas);
 				
-				JLabel labelBbdd = new JLabel("Nombre BBDD");
+				JLabel labelBbdd = new JLabel(MySqlMethods.nomBbdd(args));
 					labelBbdd.setFont(new Font("SansSerif", Font.BOLD, 15));
 					labelBbdd.setBounds(10, 10, 232, 28);
 					cont_ramas.add(labelBbdd);
@@ -105,11 +105,10 @@ public class VentanaPrincipal{
 							" ", " ", " ", " ", " "
 						}
 					));
-				int columnas= table.getColumnCount();
-				table.setRowHeight(40);	
-				for(int i=0; i<columnas;i++) table.getColumnModel().getColumn(i).setMinWidth(200);
+				
 				table.setGridColor(Color.decode("#295300"));
 				table.setBackground(Color.decode("#E5F3D0"));
+				table.setFont(new Font("SansSerif", Font.PLAIN, 14));
 				table.setVisible(true);
 				
 				table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
@@ -120,8 +119,12 @@ public class VentanaPrincipal{
 			              Color c= cell.getBackground();
 			              if (hasFocus) {
 			                  cell.setBackground(Color.decode("#FFD700"));
+			                  cell.setForeground(Color.BLACK);
+			                  cell.setFont(new Font("SansSerif", Font.BOLD, 16));
 			              }else if(isSelected){
 			            	  cell.setBackground(Color.decode("#FFFF82"));
+			            	  cell.setForeground(Color.BLACK);
+			            	  
 			              }else{
 			            	  cell.setBackground(Color.decode("#E5F3D0"));
 			              }

@@ -1,6 +1,7 @@
 package prueba1;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -31,9 +32,11 @@ import javax.swing.table.DefaultTableModel;
 public class MySqlMethods {
 	
 	private static Connection conexion;
+	private static String url;
+	private static String user;
+	private static String pswd;
 	
-	
-	public static void connect(final String [] path){
+	public static void ventanaConexion(final String [] path){
 		
 		final File f= new File(path[1]);
 		final JFrame frame= Metodos.creaVentana("Conéctese a la BBDD: "+path[0], 500, 220);
@@ -66,57 +69,71 @@ public class MySqlMethods {
 		continuar.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				
-				try {
-					Class.forName("com.mysql.jdbc.Driver");
-					String user=field_user.getText(), pswd= field_pswd.getText();
-					BufferedReader br= new BufferedReader(new FileReader(path[1]));
-					String bd= br.readLine().replace("CREATE DATABASE ", "").replace(";", "");
-					String [] s= bd.split("¿");
-					br.close();
-					System.out.println(s[1]);
-					conexion= DriverManager.getConnection("jdbc:mysql://localhost/"+s[1],user,pswd);
-					frame.dispose();
-					VentanaPrincipal.main(path);
 					
+					url= nomBbdd(path);
+					user=field_user.getText();
+					pswd= field_pswd.getText();
 					
-				}catch (ClassNotFoundException e) { e.printStackTrace();
-				}catch(SQLException e){
-					JOptionPane.showMessageDialog(null, "usuario o contraseña incorrectos.");	
-					e.printStackTrace();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
-			}
-			
+					if(connect(url,user,pswd)){
+						frame.dispose();
+						VentanaPrincipal.main(path);
+					}
+			}		
 		});
 		
 		cancelar.addActionListener(new ActionListener(){
 			@Override
-			public void actionPerformed(ActionEvent arg0) { frame.dispose(); }
+			public void actionPerformed(ActionEvent arg0) { 
+				frame.dispose(); 
+				Ventana2.main(null);}
 		});
 		
 		
 	}
 	
-	public static JButton[] rellenaPanelTablas(String [] path,JPanel panel, JButton[] tablas, JLabel[] flechas){
+	public static String nomBbdd(String [] path){
+		
+		String [] s=null;
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(path[1]));
+			String bd= br.readLine().replace("CREATE DATABASE ", "").replace(";", "");
+			s= bd.split("¿");
+			br.close();
+		} catch (FileNotFoundException e) { e.printStackTrace();
+		} catch (IOException e) { e.printStackTrace(); }
+		
+		return s[1];
+	}
+	
+	public static boolean connect(String url, String user, String pswd){
 		
 		try {
 			
-			String [] bd= null;
-			try {
-				BufferedReader br= new BufferedReader(new FileReader(path[1]));
-				String s= br.readLine().replace("CREATE DATABASE ", "").replace(";", "");
-				bd= s.split("¿");
-				br.close();
-			} catch (FileNotFoundException e) {e.printStackTrace();
-			} catch (IOException e) {e.printStackTrace();}
-			
+			Class.forName("com.mysql.jdbc.Driver");
+			conexion= DriverManager.getConnection("jdbc:mysql://localhost/"+url,user,pswd);
+			return true;
+		} catch (ClassNotFoundException e) { e.printStackTrace(); return false;
+		}catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, "usuario o contraseña incorrectos.");	
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
+	
+	public static void disconnect(){
+		try {
+			conexion.close();
+		} catch (SQLException e) { e.printStackTrace(); }
+	}
+	
+	public static JButton[] rellenaPanelTablas(String [] path,JPanel panel, JButton[] tablas, JLabel[] flechas){
+				
+		try{
 			
 			Statement s= conexion.createStatement();
-			ResultSet res= s.executeQuery("SELECT * FROM information_schema.tables WHERE table_schema='"+bd[1]+"';");
+			ResultSet res= s.executeQuery("SELECT * FROM information_schema.tables "
+					+ "WHERE table_schema='"+nomBbdd(path)+"';");
 			
 			res.last();
 			tablas= new JButton[res.getRow()];
@@ -141,6 +158,7 @@ public class MySqlMethods {
 			res.close();
 			s.close();
 		
+			disconnect();
 		
 		} catch (SQLException e) { e.printStackTrace(); }
 		return tablas;
@@ -159,9 +177,10 @@ public class MySqlMethods {
 						else botones[n].setForeground(Color.BLACK);
 					}
 					
+					connect(url,user,pswd);
 					try {
 						Statement s2= conexion.createStatement();
-						System.out.println(e.getActionCommand());
+						
 						ResultSet rs= s2.executeQuery("SELECT * FROM "+e.getActionCommand());
 						ResultSetMetaData rsmt= rs.getMetaData();
 						
@@ -169,27 +188,32 @@ public class MySqlMethods {
 						int row= rs.getRow();
 						int col= rsmt.getColumnCount();
 						rs.beforeFirst();
-						System.out.println("------------COLUMNAS--------------");
+						
 						String[] columnas= new String[col];
-						for(int c=0; c<col; c++){
-							columnas[c]= rsmt.getColumnName(c+1);
-							System.out.println(rsmt.getColumnName(c+1));
-						}
+						for(int c=0; c<col; c++) columnas[c]= rsmt.getColumnName(c+1);
+							
 						
 						Object[][] datos= new Object[row][col];
-						System.out.println("------------DATOS--------------");
 						while(rs.next()){
 							int r= rs.getRow()-1;
-							for(int c=0; c<col;c++){ 
-								datos[r][c]= rs.getObject(c+1);
-								System.out.println(rs.getObject(c+1));
-							}
+							for(int c=0; c<col;c++) datos[r][c]= rs.getObject(c+1);
+															
 						}
 						
+						tabla.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 						tabla.setModel(new DefaultTableModel(datos,columnas));
+						int colum= tabla.getColumnCount();
+						tabla.setRowHeight(40);	
+						for(int i=0; i<colum;i++) tabla.getColumnModel().getColumn(i).setMinWidth(200);
+						
+						/*Dimension pantalla= Toolkit.getDefaultToolkit().getScreenSize();
+						if(tabla.getWidth()<((int)(pantalla.width*0.71))){
+							tabla.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+						}*/
 						
 						rs.close();
 						s2.close();
+						disconnect();
 						
 					}catch (SQLException e1) { e1.printStackTrace(); }
 				}		

@@ -110,13 +110,13 @@ public class Ventana2 {
 			btnContinuar.setBounds(300, 125, 122, 45);
 			btnContinuar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					JOptionPane.showMessageDialog(null, "Aqui entramos en el programa pofin!");
+					
 					String[] args= new String[2];
 					args[0]= label_fichero.getText();
 					args[1]=path;
 					if(args[0].endsWith("sql")){
 						frame.dispose();
-						MySqlMethods.connect(args);
+						MySqlMethods.ventanaConexion(args);
 					}
 						
 					
