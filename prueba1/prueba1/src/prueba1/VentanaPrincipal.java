@@ -98,7 +98,7 @@ public class VentanaPrincipal{
 					flecha2.setBounds(30,80,30,30);
 				
 				
-				ButtonGroup bg= new ButtonGroup();
+				//ButtonGroup bg= new ButtonGroup();
 				final JButton[] tablas= new JButton[2];
 				
 				for(int i=0;i<tablas.length; i++){
@@ -107,7 +107,7 @@ public class VentanaPrincipal{
 					tablas[i].setContentAreaFilled(false);
 					tablas[i].setBorderPainted(false);
 					
-					bg.add(tablas[i]);
+					//bg.add(tablas[i]);
 					cont_ramas.add(tablas[i]);
 					tablas[i].addActionListener(new ActionListener(){
 
