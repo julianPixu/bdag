@@ -74,6 +74,16 @@ public class MySqlMethods {
 					user=field_user.getText();
 					pswd= field_pswd.getText();
 					
+					File f = new File("mysql-5.0.22-win32/bin/mysqld.exe");
+					System.out.println(f.getAbsolutePath());
+					if(f.exists()){ 
+							
+							//ejecutamos un archivo ppt desde el PowerPoint
+						try {Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler "+f.getAbsolutePath());} 
+						catch(Exception err){ System.out.println("Fallo d ejecucion");err.printStackTrace();} 
+						
+					}else System.out.println("Fichero no encontrado");
+					
 					if(connect(url,user,pswd)){
 						frame.dispose();
 						VentanaPrincipal.main(path);
@@ -108,6 +118,7 @@ public class MySqlMethods {
 	public static boolean connect(String url, String user, String pswd){
 		
 		try {
+			
 			
 			Class.forName("com.mysql.jdbc.Driver");
 			conexion= DriverManager.getConnection("jdbc:mysql://localhost/"+url,user,pswd);
@@ -204,7 +215,7 @@ public class MySqlMethods {
 						tabla.setModel(new DefaultTableModel(datos,columnas));
 						int colum= tabla.getColumnCount();
 						tabla.setRowHeight(40);	
-						for(int i=0; i<colum;i++) tabla.getColumnModel().getColumn(i).setMinWidth(200);
+						for(int i=0; i<colum;i++) tabla.getColumnModel().getColumn(i).setMinWidth(150);
 						
 						/*Dimension pantalla= Toolkit.getDefaultToolkit().getScreenSize();
 						if(tabla.getWidth()<((int)(pantalla.width*0.71))){
@@ -220,11 +231,5 @@ public class MySqlMethods {
 			});//ActionListener
 		}//for
 	}
-	
-	
-	
-	/*public static void main(String[] args) {
-		connect("algo.txt");
-	}*/
 
 }

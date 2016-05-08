@@ -109,6 +109,8 @@ public class VentanaPrincipal{
 				table.setGridColor(Color.decode("#295300"));
 				table.setBackground(Color.decode("#E5F3D0"));
 				table.setFont(new Font("SansSerif", Font.PLAIN, 14));
+				//table.setEnabled(false);
+				table.setCellSelectionEnabled(false);
 				table.setVisible(true);
 				
 				table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {

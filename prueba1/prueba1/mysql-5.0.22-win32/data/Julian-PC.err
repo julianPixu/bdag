@@ -1,0 +1,571 @@
+150427 11:45:40  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+150427 11:45:40  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 797000.
+InnoDB: Doing recovery: scanned up to log sequence number 0 797000
+150427 11:45:40  InnoDB: Started; log sequence number 0 797000
+150427 11:45:40 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+150427 11:45:54  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+150429  8:16:23  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+150429  8:16:24  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 877637.
+InnoDB: Doing recovery: scanned up to log sequence number 0 877637
+150429  8:16:24  InnoDB: Started; log sequence number 0 877637
+150429  8:16:24 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+150429  8:16:27  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+150430 13:41:04  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+150430 13:41:04  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 957691.
+InnoDB: Doing recovery: scanned up to log sequence number 0 957691
+150430 13:41:04  InnoDB: Started; log sequence number 0 957691
+150430 13:41:04 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+150430 13:41:14  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+150505 12:36:39  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+150505 12:36:40  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 963728.
+InnoDB: Doing recovery: scanned up to log sequence number 0 963728
+150505 12:36:40  InnoDB: Started; log sequence number 0 963728
+150505 12:36:40 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+150512 12:50:34  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+150512 12:50:34  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1032985.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1032985
+150512 12:50:34  InnoDB: Started; log sequence number 0 1032985
+150512 12:50:34 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+150512 21:26:30  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+150512 21:26:30  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1043184.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1043184
+150512 21:26:30  InnoDB: Started; log sequence number 0 1043184
+150512 21:26:30 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+150514 12:30:20  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+150514 12:30:21  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1043194.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1043194
+150514 12:30:23  InnoDB: Started; log sequence number 0 1043194
+150514 12:30:23 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+150519 12:37:15  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+150519 12:37:15  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1043194.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1043194
+150519 12:37:15  InnoDB: Started; log sequence number 0 1043194
+150519 12:37:16 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+150519 20:36:34  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+150519 20:36:34  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1043194.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1043194
+150519 20:36:34  InnoDB: Started; log sequence number 0 1043194
+150519 20:36:34 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+150520 21:17:42  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+150520 21:17:42  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1078288.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1078288
+150520 21:17:42  InnoDB: Started; log sequence number 0 1078288
+150520 21:17:42 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+150530 19:41:58  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+150530 19:41:59  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1126351.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1126351
+150530 19:41:59  InnoDB: Started; log sequence number 0 1126351
+150530 19:41:59 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+150531 12:42:02  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+150531 12:42:02  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1150556.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1150556
+150531 12:42:02  InnoDB: Started; log sequence number 0 1150556
+150531 12:42:03 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+150601 16:44:19  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+150601 16:44:19  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1150556.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1150556
+150601 16:44:20  InnoDB: Started; log sequence number 0 1150556
+150601 16:44:20 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+150602  9:15:30  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+150602  9:15:30  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1207471.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1207471
+150602  9:15:30  InnoDB: Started; log sequence number 0 1207471
+150602  9:15:31 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+150602 12:38:24  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+150602 19:42:19  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+150602 19:42:20  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1221138.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1221138
+150602 19:42:20  InnoDB: Started; log sequence number 0 1221138
+150602 19:42:20 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+160117 21:02:07  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+160117 21:02:08  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1278214.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1278214
+160117 21:02:08  InnoDB: Started; log sequence number 0 1278214
+160117 21:02:08 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+160117 21:56:34  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160117 21:56:35  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160118  8:20:49  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160119  9:41:48  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+160119  9:41:48  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1278214.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1278214
+160119  9:41:49  InnoDB: Started; log sequence number 0 1278214
+160119  9:41:49 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+160119 11:31:53  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160120 21:06:23  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+160120 21:06:23  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1278214.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1278214
+160120 21:06:23  InnoDB: Started; log sequence number 0 1278214
+160120 21:06:23 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+160122 10:27:27  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+160122 10:27:27  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1278214.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1278214
+160122 10:27:27  InnoDB: Started; log sequence number 0 1278214
+160122 10:27:27 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+160122 10:28:31  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160122 10:28:32  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160122 20:26:25  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160124 20:15:44  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160126  8:31:42  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+160126  8:31:43  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1311930.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1311930
+160126  8:31:43  InnoDB: Started; log sequence number 0 1311930
+160126  8:31:43 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+160127 10:30:13  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160127 19:53:30  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160128 10:30:01  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160129  8:40:32  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160204  8:48:27  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+160204  8:48:27  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1317421.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1317421
+160204  8:48:28  InnoDB: Started; log sequence number 0 1317421
+160204  8:48:28 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+160205 21:25:18  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+160205 21:25:18  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1317421.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1317421
+160205 21:25:19  InnoDB: Started; log sequence number 0 1317421
+160205 21:25:19 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+160209 11:43:09  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+160209 11:43:09  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1317421.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1317421
+160209 11:43:09  InnoDB: Started; log sequence number 0 1317421
+160209 11:43:10 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+160218 21:15:22  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+160218 21:15:23  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1317421.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1317421
+160218 21:15:23  InnoDB: Started; log sequence number 0 1317421
+160218 21:15:23 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+160220 20:10:17  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160221 17:26:31  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160225  9:18:22  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+160225  9:18:23  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1317421.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1317421
+160225  9:18:23  InnoDB: Started; log sequence number 0 1317421
+160225  9:18:24 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+160308 13:35:43  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+160308 13:35:43  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1317421.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1317421
+160308 13:35:44  InnoDB: Started; log sequence number 0 1317421
+160308 13:35:44 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+160312 13:17:06  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+160312 13:17:07  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1317421.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1317421
+160312 13:17:07  InnoDB: Started; log sequence number 0 1317421
+160312 13:17:07 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+160327 16:40:37  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+160327 16:40:37  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1317421.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1317421
+160327 16:40:38  InnoDB: Started; log sequence number 0 1317421
+160327 16:40:38 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+160404 23:51:31  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+160404 23:51:31  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1317421.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1317421
+160404 23:51:32  InnoDB: Started; log sequence number 0 1317421
+160415 23:51:19  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+160415 23:51:19  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1317421.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1317421
+160415 23:51:19  InnoDB: Started; log sequence number 0 1317421
+160415 23:51:20 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+160424 21:51:59  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+160424 21:52:00  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1317421.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1317421
+160424 21:52:00  InnoDB: Started; log sequence number 0 1317421
+160424 21:52:00 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+160424 23:24:59  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160507 12:40:42  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+160507 12:40:42  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1317421.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1317421
+160507 12:40:43  InnoDB: Started; log sequence number 0 1317421
+160507 12:40:43 [Note] C:\Users\Julian\Documents\BASES DE DATOS\BD_Tema_4 (segun apuntes)\mysql-noinstall-5.0.22-win32\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+160508 14:12:00  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+160508 14:12:00  InnoDB: Starting log scan based on checkpoint at
+InnoDB: log sequence number 0 1317431.
+InnoDB: Doing recovery: scanned up to log sequence number 0 1317431
+160508 14:12:00  InnoDB: Started; log sequence number 0 1317431
+160508 14:12:00 [Note] C:\Users\Julian\git\bdag\prueba1\prueba1\mysql-5.0.22-win32\bin\mysqld.exe: ready for connections.
+Version: '5.0.22-community'  socket: ''  port: 3306  MySQL Community Edition (GPL)
+160508 14:12:05  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160508 14:12:07  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160508 14:16:45  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160508 15:34:58  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160508 15:35:01  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160508 15:35:02  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160508 15:35:43  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160508 15:36:54  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160508 15:42:18  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160508 15:47:29  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160508 15:48:44  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160508 15:50:27  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160508 15:54:29  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160508 15:56:08  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160508 15:56:53  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
+160508 16:07:50  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.

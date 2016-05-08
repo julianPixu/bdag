@@ -87,7 +87,7 @@ public class Ventana2 {
 						label_fichero.setText(nombre);
 						path=fichero.getPath();
 						
-						if(nombre.endsWith("sql")){
+						if(nombre.endsWith("sql")||nombre.endsWith("db")){
 							btnContinuar.setEnabled(true);
 							label_error.setVisible(false);
 							Image img=new ImageIcon("imagenes/ook.jpg").getImage().getScaledInstance(38, 33, Image.SCALE_SMOOTH);
@@ -114,7 +114,7 @@ public class Ventana2 {
 					String[] args= new String[2];
 					args[0]= label_fichero.getText();
 					args[1]=path;
-					if(args[0].endsWith("sql")){
+					if(args[0].endsWith("sql")||args[0].endsWith("db")){
 						frame.dispose();
 						MySqlMethods.ventanaConexion(args);
 					}
