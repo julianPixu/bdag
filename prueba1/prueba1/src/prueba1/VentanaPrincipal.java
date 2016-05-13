@@ -76,13 +76,17 @@ public class VentanaPrincipal{
 				cont_ramas.setBackground(Color.decode("#F2F2F2"));
 				scrollRamas.setViewportView(cont_ramas);
 				
-				JLabel labelBbdd = new JLabel(MySqlMethods.nomBbdd(args));
+				JLabel labelBbdd;
+				if(args[0].endsWith("sql")) labelBbdd = new JLabel(MySqlMethods.nomBbdd(args));
+				else  labelBbdd = new JLabel(args[0]);
 					labelBbdd.setFont(new Font("SansSerif", Font.BOLD, 15));
 					labelBbdd.setBounds(10, 10, 232, 28);
 					cont_ramas.add(labelBbdd);
 					
 				JButton[] tablas=new JButton[1]; JLabel[] flechas= new JLabel[1];
-				tablas= MySqlMethods.rellenaPanelTablas(args, cont_ramas, tablas, flechas);
+				
+				if(args[0].endsWith("sql"))tablas= MySqlMethods.rellenaPanelTablas(args, cont_ramas, tablas, flechas);
+				else if(args[0].endsWith("xlsx")|| args[0].endsWith("xls")) tablas=ExcelMethods.connect(args, cont_ramas, tablas,flechas);
 			
 		JScrollPane scrollTabla = new JScrollPane();
 			scrollTabla.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
