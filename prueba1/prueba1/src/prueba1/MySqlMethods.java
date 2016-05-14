@@ -101,6 +101,8 @@ public class MySqlMethods {
 		
 	}
 	
+
+
 	public static String nomBbdd(String [] path){
 		
 		String [] s=null;
@@ -230,6 +232,42 @@ public class MySqlMethods {
 				}		
 			});//ActionListener
 		}//for
+	}
+	
+	public static String getUrl() {
+		return url;
+	}
+
+	public static void setUrl(String url) {
+		MySqlMethods.url = url;
+	}
+
+	public static String getUser() {
+		return user;
+	}
+
+	public static void setUser(String user) {
+		MySqlMethods.user = user;
+	}
+
+	public static String getPswd() {
+		return pswd;
+	}
+
+	public static void setPswd(String pswd) {
+		MySqlMethods.pswd = pswd;
+	}
+
+
+
+	public static Connection getConexion() {
+		return conexion;
+	}
+
+
+
+	public static void setConexion(Connection conexion) {
+		MySqlMethods.conexion = conexion;
 	}
 
 }

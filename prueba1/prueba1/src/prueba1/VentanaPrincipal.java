@@ -39,6 +39,8 @@ import javax.swing.JPanel;
 public class VentanaPrincipal{
 
 	private static JFrame frame;
+	public static JTable table;
+	public static JButton[] tablas;
 	
 	public static void main(final String[] args) {
 		
@@ -59,7 +61,8 @@ public class VentanaPrincipal{
 			archivo.addMouseListener(new MouseAdapter(){
 				@Override
 				public void mouseClicked(MouseEvent e){
-					JOptionPane.showMessageDialog(null, "Ahora veras la tablaaa!!!");
+					//JOptionPane.showMessageDialog(null, "Ahora veras la tablaaa!!!");
+					VentanaConsultas.creaVentana(table, tablas);
 				}
 			});
 		
@@ -83,7 +86,7 @@ public class VentanaPrincipal{
 					labelBbdd.setBounds(10, 10, 232, 28);
 					cont_ramas.add(labelBbdd);
 					
-				JButton[] tablas=new JButton[1]; JLabel[] flechas= new JLabel[1];
+				tablas=new JButton[1]; JLabel[] flechas= new JLabel[1];
 				
 				if(args[0].endsWith("sql"))tablas= MySqlMethods.rellenaPanelTablas(args, cont_ramas, tablas, flechas);
 				else if(args[0].endsWith("xlsx")|| args[0].endsWith("xls")) tablas=ExcelMethods.connect(args, cont_ramas, tablas,flechas);
@@ -94,7 +97,7 @@ public class VentanaPrincipal{
 			scrollTabla.setBounds((int)(pantalla.width*0.27),40, (int)(pantalla.width*0.71),600);
 			//scrollTabla.setBackground(Color.decode("#E5F3D0"));
 			
-			JTable table=new JTable();
+			 table=new JTable();
 				scrollTabla.setViewportView(table);
 				
 				table.setModel(new DefaultTableModel(
@@ -144,7 +147,8 @@ public class VentanaPrincipal{
 		frame.add(scrollTabla);
 		frame.setVisible(true);
 		
-		MySqlMethods.rellenaTablas(table, tablas);
+		if(args[0].endsWith("sql")) MySqlMethods.rellenaTablas(table, tablas);
+		else if(args[0].endsWith("xls")||args[0].endsWith("xlsx")) ExcelMethods.rellenaTablas(args, table, tablas);
 	}
 	
 }
