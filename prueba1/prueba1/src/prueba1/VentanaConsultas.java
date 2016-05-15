@@ -17,12 +17,13 @@ import javax.swing.JRadioButton;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+import excel.ConsultasExcel;
 import sql.Consultas;
 
 public class VentanaConsultas {
 
 		
-	public static void creaVentana(final JTable tabla, final JButton[] botones) {
+	public static void creaVentana(final String path[],final JTable tabla, final JButton[] botones) {
 		
 		Dimension d= Toolkit.getDefaultToolkit().getScreenSize();
 		JFrame frame= Metodos.creaVentana("CONSULTA", d.width/2, d.height-40);
@@ -64,7 +65,7 @@ public class VentanaConsultas {
 					}*/
 					
 					switch(e.getActionCommand()){
-						case "BARRAS": panel.removeAll(); panelBarra(panel,tabla, botones);  panel.repaint();	break;
+						case "BARRAS": panel.removeAll(); panelBarra(path,panel,tabla, botones);  panel.repaint();	break;
 						case "TARTA":  panel.removeAll(); panelTarta(panel);  panel.repaint();	break;
 						case "LINEAS": panel.removeAll(); panelLinea(panel);  panel.repaint();	break;
 					}
@@ -76,7 +77,7 @@ public class VentanaConsultas {
 		frame.setVisible(true);	
 	}
 	
-	public static void panelBarra(JPanel panel, final JTable tabla, final JButton[] botones){
+	public static void panelBarra(final String[] path, JPanel panel, final JTable tabla, final JButton[] botones){
 		
 		JLabel l= new JLabel("Selecciona el campo por el que se va ha hacer estadística.");
 			l.setBounds(0,0,400,30);
@@ -95,12 +96,15 @@ public class VentanaConsultas {
 			final JComboBox[] box= new JComboBox[2];
 		for(int i=0; i<botones.length;i++){
 				if(botones[i].getForeground()==Color.GREEN){
-					box[0]=Consultas.campos(botones[i].getText());
-					box[0].setBounds(55, 35, 200, 30);
-					panel.add(box[0]);
-					box[1]=Consultas.campos(botones[i].getText());
-					box[1].setBounds(55, 105, 200, 30);
-					panel.add(box[1]);
+					if(path[0].endsWith("sql"))box[0]=Consultas.campos(botones[i].getText());
+					else box[0]=ConsultasExcel.campos(botones[i].getText());
+						box[0].setBounds(55, 35, 200, 30);
+						panel.add(box[0]);
+						
+					if(path[0].endsWith("sql"))box[1]=Consultas.campos(botones[i].getText());
+					else box[1]=ConsultasExcel.campos(botones[i].getText());
+						box[1].setBounds(55, 105, 200, 30);
+						panel.add(box[1]);
 				}	
 			}
 			
@@ -120,7 +124,8 @@ public class VentanaConsultas {
 				
 				for(int i=0; i<botones.length; i++){
 					if(botones[i].getForeground()==Color.GREEN){
-						Consultas.rellenaTabla(tabla, (String)box[0].getSelectedItem(), (String)box[1].getSelectedItem(), botones[i].getText());
+						if(path[0].endsWith("sql")) Consultas.rellenaTabla(tabla, (String)box[0].getSelectedItem(), (String)box[1].getSelectedItem(), botones[i].getText());
+						else ConsultasExcel.rellenaTabla(tabla, (String)box[0].getSelectedItem(), (String)box[1].getSelectedItem(), botones[i].getText());
 					}
 				}
 				

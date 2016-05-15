@@ -65,7 +65,7 @@ public class VentanaPrincipal{
 				@Override
 				public void mouseClicked(MouseEvent e){
 					//JOptionPane.showMessageDialog(null, "Ahora veras la tablaaa!!!");
-					VentanaConsultas.creaVentana(table, tablas);
+					VentanaConsultas.creaVentana(args,table, tablas);
 				}
 			});
 		

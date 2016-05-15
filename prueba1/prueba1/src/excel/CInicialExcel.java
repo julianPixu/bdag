@@ -24,12 +24,13 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import prueba1.Metodos;
 
 
-
-
 public class CInicialExcel {
 
+	public static String fichero; 
 	
 	public static JButton[] connect(String [] path, JPanel panel, JButton[] jb, JLabel[] flechas){
+		
+		fichero=path[1];
 		
 		try {
 			FileInputStream fis= new FileInputStream(new File(path[1]));
@@ -66,6 +67,7 @@ public class CInicialExcel {
 		
 	}
 	
+
 	public static void rellenaTablas(final String[] path,final JTable tabla, final JButton[] botones){
 		
 		for(int i=0; i<botones.length; i++){
@@ -132,5 +134,13 @@ public class CInicialExcel {
 				}
 			});
 		}
+	}
+	
+	public static String getFichero() {
+		return fichero;
+	}
+
+	public static void setFichero(String fichero) {
+		CInicialExcel.fichero = fichero;
 	}
 }
