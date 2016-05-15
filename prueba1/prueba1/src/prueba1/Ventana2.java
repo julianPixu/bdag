@@ -21,6 +21,8 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.plaf.ColorUIResource;
 
+import sql.CargaInicial;
+
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -117,7 +119,7 @@ public class Ventana2 {
 					
 					if(args[0].endsWith("sql")){
 						frame.dispose();
-						MySqlMethods.ventanaConexion(args);
+						CargaInicial.ventanaConexion(args);
 						
 					}else if(args[0].endsWith("xlsx")||args[0].endsWith("xls")){
 						frame.dispose();

@@ -10,8 +10,6 @@ import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import prueba1.MySqlMethods;
-
 public class Consultas {
 	
 	
@@ -19,8 +17,8 @@ public class Consultas {
 		
 		JComboBox box= new JComboBox();
 		
-		MySqlMethods.connect(MySqlMethods.getUrl(), MySqlMethods.getUser(), MySqlMethods.getPswd());
-		Connection c= MySqlMethods.getConexion();
+		CargaInicial.connect(CargaInicial.getUrl(), CargaInicial.getUser(), CargaInicial.getPswd());
+		Connection c= CargaInicial.getConexion();
 		
 		try {
 			Statement st= c.createStatement();
@@ -33,7 +31,7 @@ public class Consultas {
 		
 			rs.close();
 			st.close();
-			MySqlMethods.disconnect();
+			CargaInicial.disconnect();
 		
 		} catch (SQLException e) {e.printStackTrace(); }
 		
@@ -42,8 +40,8 @@ public class Consultas {
 	
 	public static void rellenaTabla( JTable tabla,String x, String y, String tab){
 		
-		MySqlMethods.connect(MySqlMethods.getUrl(), MySqlMethods.getUser(), MySqlMethods.getPswd());
-		Connection c= MySqlMethods.getConexion();
+		CargaInicial.connect(CargaInicial.getUrl(), CargaInicial.getUser(), CargaInicial.getPswd());
+		Connection c= CargaInicial.getConexion();
 		
 		try {
 			Statement st= c.createStatement();
@@ -70,7 +68,7 @@ public class Consultas {
 		
 			rs.close();
 			st.close();
-			MySqlMethods.disconnect();
+			CargaInicial.disconnect();
 		
 		} catch (SQLException e) {e.printStackTrace(); }
 	}

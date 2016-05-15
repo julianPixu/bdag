@@ -32,6 +32,9 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 
+import excel.CInicialExcel;
+import sql.CargaInicial;
+
 import java.awt.Font;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.JPanel;
@@ -80,7 +83,7 @@ public class VentanaPrincipal{
 				scrollRamas.setViewportView(cont_ramas);
 				
 				JLabel labelBbdd;
-				if(args[0].endsWith("sql")) labelBbdd = new JLabel(MySqlMethods.nomBbdd(args));
+				if(args[0].endsWith("sql")) labelBbdd = new JLabel(CargaInicial.nomBbdd(args));
 				else  labelBbdd = new JLabel(args[0]);
 					labelBbdd.setFont(new Font("SansSerif", Font.BOLD, 15));
 					labelBbdd.setBounds(10, 10, 232, 28);
@@ -88,8 +91,8 @@ public class VentanaPrincipal{
 					
 				tablas=new JButton[1]; JLabel[] flechas= new JLabel[1];
 				
-				if(args[0].endsWith("sql"))tablas= MySqlMethods.rellenaPanelTablas(args, cont_ramas, tablas, flechas);
-				else if(args[0].endsWith("xlsx")|| args[0].endsWith("xls")) tablas=ExcelMethods.connect(args, cont_ramas, tablas,flechas);
+				if(args[0].endsWith("sql"))tablas= CargaInicial.rellenaPanelTablas(args, cont_ramas, tablas, flechas);
+				else if(args[0].endsWith("xlsx")|| args[0].endsWith("xls")) tablas=CInicialExcel.connect(args, cont_ramas, tablas,flechas);
 			
 		JScrollPane scrollTabla = new JScrollPane();
 			scrollTabla.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
@@ -147,8 +150,8 @@ public class VentanaPrincipal{
 		frame.add(scrollTabla);
 		frame.setVisible(true);
 		
-		if(args[0].endsWith("sql")) MySqlMethods.rellenaTablas(table, tablas);
-		else if(args[0].endsWith("xls")||args[0].endsWith("xlsx")) ExcelMethods.rellenaTablas(args, table, tablas);
+		if(args[0].endsWith("sql")) CargaInicial.rellenaTablas(table, tablas);
+		else if(args[0].endsWith("xls")||args[0].endsWith("xlsx")) CInicialExcel.rellenaTablas(args, table, tablas);
 	}
 	
 }

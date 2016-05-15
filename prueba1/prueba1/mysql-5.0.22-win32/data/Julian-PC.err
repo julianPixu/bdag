@@ -668,3 +668,9 @@ InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
 InnoDB: File name .\ibdata1
 InnoDB: File operation call: 'open'.
 InnoDB: Cannot continue operation.
+160515 14:10:37  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/mysql/en/Operating_System_error_codes.html
+InnoDB: File name .\ibdata1
+InnoDB: File operation call: 'open'.
+InnoDB: Cannot continue operation.
