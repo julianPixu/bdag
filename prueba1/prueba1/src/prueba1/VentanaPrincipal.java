@@ -51,26 +51,7 @@ public class VentanaPrincipal{
 		Font fuente =new Font("Serif",Font.BOLD,20);
 		frame= Metodos.creaVentana("DB2C: "+args[0], pantalla.width, (pantalla.height-35));
 		
-		JToolBar toolBar = new JToolBar();
-			toolBar.setBounds(0, 0, pantalla.width, 30);
-			toolBar.setFloatable(false);
-			toolBar.setBackground(Color.BLACK);
-			
-			JLabel logo= Metodos.creaImagen("logoicon.jpg", 50, 45);
-			toolBar.add(logo, 0);
-			JLabel archivo= new JLabel("Archivo");
-			archivo.setForeground(Color.WHITE);
-			archivo.setFont(fuente);
-			archivo.addMouseListener(new MouseAdapter(){
-				@Override
-				public void mouseClicked(MouseEvent e){
-					//JOptionPane.showMessageDialog(null, "Ahora veras la tablaaa!!!");
-					VentanaConsultas.creaVentana(args,table, tablas);
-				}
-			});
 		
-			toolBar.addSeparator();
-			toolBar.add(archivo,2);
 		
 		JScrollPane scrollRamas = new JScrollPane();
 			scrollRamas.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -145,13 +126,41 @@ public class VentanaPrincipal{
 			          }
 			      });
 		
-		frame.add(toolBar);
+		
 		frame.add(scrollRamas);
 		frame.add(scrollTabla);
 		frame.setVisible(true);
 		
 		if(args[0].endsWith("sql")) CargaInicial.rellenaTablas(table, tablas);
 		else if(args[0].endsWith("xls")||args[0].endsWith("xlsx")) CInicialExcel.rellenaTablas(args, table, tablas);
+		
+		
+			//INICIALIZAR TOOLBAR DESPUES DE LOS QUE LOS DEMAS OBJETOS ESTÉN INICIALIZADOS
+			//PARA EVITAR NULLPOINTERS
+		JToolBar toolBar = new JToolBar();
+		toolBar.setBounds(0, 0, pantalla.width, 30);
+		toolBar.setFloatable(false);
+		toolBar.setRollover(true);
+		toolBar.setBackground(Color.BLACK);
+		
+		JLabel logo= Metodos.creaImagen("logoicon.jpg", 50, 45);
+		toolBar.add(logo, 0);
+		JLabel archivo= new JLabel("  Archivo  ");
+		archivo.setForeground(Color.WHITE);
+		archivo.setFont(fuente);
+		Metodos.muestraMenu(archivo, false, args,table, tablas);
+		JLabel ayuda= new JLabel("  Ayuda  ");
+		ayuda.setForeground(Color.WHITE);
+		ayuda.setFont(fuente);
+		Metodos.muestraMenu(ayuda, true, args,table, tablas);
+		
+	
+		toolBar.addSeparator();
+		
+		toolBar.add(archivo,2);
+		toolBar.addSeparator();
+		toolBar.add(ayuda,4);
+		frame.add(toolBar);
 	}
 	
 }

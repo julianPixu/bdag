@@ -60,10 +60,6 @@ public class VentanaConsultas {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					
-					/*if(e.getActionCommand().equals("BARRAS")){
-						panel.removeAll(); panelBarra(panel); panel.repaint();
-					}*/
-					
 					switch(e.getActionCommand()){
 						case "BARRAS": panel.removeAll(); panelBarra(path,panel,tabla, botones);  panel.repaint();	break;
 						case "TARTA":  panel.removeAll(); panelTarta(panel);  panel.repaint();	break;
@@ -94,7 +90,7 @@ public class VentanaConsultas {
 			y.setForeground(Color.WHITE);
 
 			final JComboBox[] box= new JComboBox[2];
-		for(int i=0; i<botones.length;i++){
+			for(int i=0; i<botones.length;i++){
 				if(botones[i].getForeground()==Color.GREEN){
 					if(path[0].endsWith("sql"))box[0]=Consultas.campos(botones[i].getText());
 					else box[0]=ConsultasExcel.campos(botones[i].getText());

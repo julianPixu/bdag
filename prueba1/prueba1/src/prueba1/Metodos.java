@@ -1,8 +1,15 @@
 package prueba1;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.Insets;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 
@@ -11,7 +18,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPopupMenu;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
 
 /**Esta clase contiene los métodos genéricos para aplicar en la app
@@ -78,6 +89,53 @@ public class Metodos {
 		table.setRowHeight(40);	
 		for(int i=0; i<columnas;i++) table.getColumnModel().getColumn(i).setMinWidth(200);
 		table.setVisible(true);
+	}
+	
+	public static void muestraMenu(final JLabel label, boolean b, final String[] path, final JTable tabla, final JButton[] botones){
+		
+		final JPopupMenu menu= new JPopupMenu();
+		menu.setBackground(Color.BLACK);
+		menu.setPopupSize(new Dimension(150, 200));
+		menu.setBounds(400, 400, 300, 100);
+		
+		if(b){
+			JTextArea area= new JTextArea("Hola paaxu\n soy la ventanica\nde ayuda.");
+			area.setForeground(Color.WHITE);
+			area.setBackground(Color.BLACK);
+			area.setOpaque(true);
+			menu.add(area);
+		}else{
+			JMenuItem[] items= new JMenuItem[3];
+			items[0]= new JMenuItem("Nuevo");			
+			items[1]= new JMenuItem("Consultar");		
+			items[2]= new JMenuItem("Cancelar");		
+			
+			for(int i=0; i<3;i++){
+				items[i].setForeground(Color.WHITE);
+				items[i].setBackground(Color.BLACK);
+				items[i].setOpaque(true);
+				items[i].setFont(new Font("Serif",Font.PLAIN,14));
+				menu.add(items[i]);
+				final int I=i;
+				items[i].addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent arg0) {
+						
+						switch(I){
+						case 0: JOptionPane.showMessageDialog(null, "SOY EL BOTON NUEVO"); 	break;
+						case 1: VentanaConsultas.creaVentana(path, tabla, botones);	 		break;
+						case 2: JOptionPane.showMessageDialog(null, "SAYONARA BABY"); 		break;
+						}
+					}	
+				});
+			}//for	
+		}//else
+		
+		
+		label.addMouseListener(new MouseAdapter(){
+			public void mouseClicked(MouseEvent e){
+				menu.show(label, 0, 30);
+			}
+		});
 	}
 
 }
