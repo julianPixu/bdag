@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -23,6 +24,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
+import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 
 import prueba1.VentanaConsultas;
@@ -84,6 +86,46 @@ public class Metodos {
 		return b;
 	}
 	
+	
+	public static ImageIcon creaBicon(String imagen){
+		
+		 Image img=null;
+		ImageIcon i,r;
+		
+		try {
+			i= new ImageIcon(ImageIO.read(new File("imagenes/botons/acept.jpg")));
+			img= i.getImage().getScaledInstance(122, 45, Image.SCALE_SMOOTH);
+			
+		
+		} catch (IOException e2) {	System.out.println("Error al insertar fondo"); }
+		
+		 r=new ImageIcon(img);
+		 
+		
+		return r;
+	}
+	
+	
+	public static Border creaBorder(){
+		Border border=BorderFactory.createEmptyBorder();
+	
+		JButton b= creaBoton("exit.jpg");
+		
+		b.setContentAreaFilled(false);
+		
+		b.setBorderPainted(false);
+		
+		
+		
+		
+		return border;
+	}
+	
+
+	
+	
+	
+	
 	public static void rellenaTabla(JTable table, String[] colName, Object[][] data){
 		
 		table.setModel(new DefaultTableModel(data, colName));
@@ -139,5 +181,6 @@ public class Metodos {
 			}
 		});
 	}
+	
 
 }
