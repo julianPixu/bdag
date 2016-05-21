@@ -32,6 +32,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 
+import Design.Metodos;
 import excel.CInicialExcel;
 import sql.CargaInicial;
 

@@ -29,7 +29,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-import prueba1.Metodos;
+import Design.Metodos;
 import prueba1.Ventana2;
 import prueba1.VentanaPrincipal;
 
