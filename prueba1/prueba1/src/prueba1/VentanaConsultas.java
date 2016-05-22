@@ -34,6 +34,7 @@ public class VentanaConsultas {
 
 	static JTextField nombreX= new JTextField();
 	static JTextField nombreY= new JTextField();
+	public static boolean bfecha= false;
 	
 	public static void creaVentana(final String path[],final JTable tabla, final JButton[] botones) {
 		
@@ -101,8 +102,8 @@ public class VentanaConsultas {
 			
 			rfech.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e) {
-					if(rfech.isSelected()) boxFecha.setVisible(true);
-					else boxFecha.setVisible(false);	
+					if(rfech.isSelected()){ boxFecha.setVisible(true);  bfecha=true; }
+					else{ boxFecha.setVisible(false);   bfecha=false; }	
 				}		
 			});
 		
@@ -140,13 +141,14 @@ public class VentanaConsultas {
 			frame.add(tip);
 			
 		ButtonGroup bg2= new ButtonGroup();
-		JRadioButton[] tipos= new JRadioButton[3];
+		final JRadioButton[] tipos= new JRadioButton[3];
 			tipos[0]= new JRadioButton("VALOR");
 			tipos[1]= new JRadioButton("SUMATORIO");
-			tipos[2]= new JRadioButton("MEDIA");
+			tipos[2]= new JRadioButton("CANTIDAD");
 			
 			for(int i=0; i<tipos.length;i++){
 				tipos[i].setBounds((i*130)+150,255,130,30);
+				if(i==0)tipos[i].setSelected(true);
 				if(i==2)tipos[i].setBounds(430,255,130,30);
 				tipos[i].setFont(Estilo.f_pequeño);
 				tipos[i].setForeground(Estilo.blanco);
@@ -253,11 +255,21 @@ public class VentanaConsultas {
 							case "CONSULTAR":
 								for(int i=0; i<botones.length; i++){
 									if(botones[i].getForeground()==Color.GREEN){
-										if(path[0].endsWith("sql")) Consultas.rellenaTabla(tabla, (String)box[0].getSelectedItem(), (String)box[1].getSelectedItem(), botones[i].getText());
-										else ConsultasExcel.rellenaTabla(tabla, (String)box[0].getSelectedItem(), (String)box[1].getSelectedItem(), botones[i].getText());
+										if(path[0].endsWith("sql")){
+											
+											Object[][] datos= Consultas.creaConsulta(box, botones[i].getText(), bfecha,(String)boxFecha.getSelectedItem(), tipos);
+											Consultas.rellenaTabla(tabla, datos,(String)box[0].getSelectedItem(), (String)box[1].getSelectedItem());
+										}
+																	
+										else{
+											Object[][] datos= ConsultasExcel.creaConsulta(box, botones[i].getText());
+											ConsultasExcel.rellenaTabla(tabla, datos, (String)box[0].getSelectedItem(), (String)box[1].getSelectedItem());
+										}
 									}
 								}
 								break;
+							
+							
 							case "CREAR GRÁFICA": break;
 							case "CANCELAR":	  break;
 						}

@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.swing.JComboBox;
+import javax.swing.JRadioButton;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -37,15 +38,33 @@ public class Consultas {
 		
 		return box;
 	}
-	
-	public static void rellenaTabla( JTable tabla,String x, String y, String tab){
+
+	public static Object[][] creaConsulta(JComboBox[] box, String table, boolean bfecha, String selectedItem, JRadioButton[] tipos) {
+		
+		Object[][] datos;
+		String sql= "SELECT ";
+		
+		if(bfecha){
+			switch(selectedItem){
+				case "DIAS":	sql+="FORMAT("+(String)box[0].getSelectedItem()+",\"DD-MM-yyyy\"),"; 	break;
+				case "MESES":	sql+="FORMAT("+(String)box[0].getSelectedItem()+",\"MM-yyyy\"),"; 		break;
+				case "AÑOS":	sql+="FORMAT("+(String)box[0].getSelectedItem()+",\"yyyy\"),";			break;
+			}		
+		}else sql+= (String)box[0].getSelectedItem()+",";
+		
+		if(tipos[1].isSelected()) sql+= "SUM("+(String)box[1].getSelectedItem()+") AS "+(String)box[1].getSelectedItem()+" ";
+		else if(tipos[2].isSelected()) sql+= "COUNT("+(String)box[1].getSelectedItem()+") AS "+(String)box[1].getSelectedItem()+" ";
+		else sql+= (String)box[1].getSelectedItem()+" ";	 
+		
+		sql+= "FROM "+table+" GROUP BY "+(String)box[1].getSelectedItem()+" ORDER BY "+(String)box[1].getSelectedItem()+";";
 		
 		CargaInicial.connect(CargaInicial.getUrl(), CargaInicial.getUser(), CargaInicial.getPswd());
 		Connection c= CargaInicial.getConexion();
-		
-		try {
+		try{
+			
 			Statement st= c.createStatement();
-			ResultSet rs= st.executeQuery("SELECT "+x+",count("+y+") FROM "+tab+" group by "+x);
+			
+			ResultSet rs= st.executeQuery(sql);
 			ResultSetMetaData meta= rs.getMetaData();
 			
 			int col= meta.getColumnCount();
@@ -53,24 +72,27 @@ public class Consultas {
 			int rows= rs.getRow();
 			rs.beforeFirst();
 			
-			String[] tit= {x,y};
-			Object[][] datos= new Object[rows][col];
+			datos= new Object[rows][col];
 			
-			
-				
 			while(rs.next()){
 				int r= rs.getRow()-1;
 				for(int i=0; i<col;i++) datos[r][i]= rs.getObject(i+1);
 												
 			}
-			
-			tabla.setModel(new DefaultTableModel(datos,tit));
-		
 			rs.close();
 			st.close();
 			CargaInicial.disconnect();
+			
+		}catch(SQLException e){e.printStackTrace(); datos= new Object[1][2];}
 		
-		} catch (SQLException e) {e.printStackTrace(); }
+		return datos;
+	}
+	
+	public static void rellenaTabla( JTable tabla,Object[][] datos, String x, String y){
+		
+		String[] tit={x,y};
+		tabla.setModel(new DefaultTableModel(datos,tit));
+		
 	}
 
 }
