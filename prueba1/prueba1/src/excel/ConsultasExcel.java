@@ -4,8 +4,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
 
 import javax.swing.JComboBox;
+import javax.swing.JRadioButton;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -47,7 +52,7 @@ public class ConsultasExcel {
 		return box;
 	}
 
-	public static Object[][] creaConsulta(JComboBox[] box, String tabla){
+	public static Object[][] creaConsulta(JComboBox[] box, String tabla, boolean bfecha, String selectedItem, JRadioButton[] tipos){
 		
 		Object[][] datos;
 		String fichero=CInicialExcel.getFichero();
@@ -72,30 +77,62 @@ public class ConsultasExcel {
 			int rows= hoja.getPhysicalNumberOfRows();
 			if(rows==0)rows=2;
 			
-			datos=new Object[rows-1][2];
+			Map<String,Object> map= new LinkedHashMap<String,Object>();
 			
 			for(int i=1; i<rows; i++){
 				Cell c= hoja.getRow(i).getCell(col1);
 				Cell c2= hoja.getRow(i).getCell(col2);
-				
-				switch(c.getCellType()){
-					case Cell.CELL_TYPE_STRING: datos[i-1][0]=c.getStringCellValue(); break;
-					case Cell.CELL_TYPE_NUMERIC: 
-						if(DateUtil.isCellDateFormatted(c))datos[i-1][0]= c.getDateCellValue();
-						else datos[i-1][0]=c.getNumericCellValue();
-						break;
-					default: datos[i-1][0]=null; break;
+				String key="";
+				if(bfecha){
+					
+					switch(selectedItem){
+						case "DIAS":	key=c.getDateCellValue().toString();								break;
+						case "MESES":	key=c.getDateCellValue().toString().substring(3);		break;
+						case "AÑOS":	key=c.getDateCellValue().toString().substring(5);		break;
+					}		
+				}else{
+					switch(c.getCellType()){
+						case Cell.CELL_TYPE_STRING: 	key=c.getStringCellValue();  break;
+						case Cell.CELL_TYPE_NUMERIC: 	key= Integer.toString((int)c.getNumericCellValue()); break;
+					}
 				}
 				
-				switch(c2.getCellType()){
-					case Cell.CELL_TYPE_STRING: datos[i-1][1]=c2.getStringCellValue(); break;
-					case Cell.CELL_TYPE_NUMERIC: 
-						if(DateUtil.isCellDateFormatted(c2))datos[i-1][1]= c2.getDateCellValue();
-						else datos[i-1][1]=c2.getNumericCellValue();
-						break;
-					default: datos[i-1][1]=null; break;
+				map.put(key, 0);
+				if(tipos[1].isSelected()){
+					if(map.containsKey(key)) map.put(key, (int)map.get(key)+c2.getNumericCellValue());
+					else map.put(key, c2.getNumericCellValue());
+				
+				
+				}else if(tipos[2].isSelected()){
+					if(map.containsKey(key)) map.put(key, (int)map.get(key)+1);
+					else map.put(key, 1);
+				
+				}else{
+					switch(c2.getCellType()){
+						case Cell.CELL_TYPE_STRING: map.put(key, c2.getStringCellValue()); break;
+						case Cell.CELL_TYPE_NUMERIC: 
+							if(DateUtil.isCellDateFormatted(c2)) map.put(key, c2.getDateCellValue());
+							else map.put(key, c2.getNumericCellValue());
+							break;
+						default: map.put(key,""); break;
+					}
 				}
 			}
+			
+			
+			Set s= map.keySet();
+			datos= new Object [s.size()][2];
+			Iterator it= s.iterator();
+			int cont=0;
+			
+			while(it.hasNext()){
+				String str= (String)it.next();
+				datos[cont][0]= str;
+				datos[cont][1]= map.get(str);
+				cont++;
+			}
+			
+			
 		} catch (FileNotFoundException e) { e.printStackTrace(); datos= new Object[1][2];
 		} catch (IOException e) { e.printStackTrace(); 			 datos= new Object[1][2];}
 		

@@ -262,7 +262,7 @@ public class VentanaConsultas {
 										}
 																	
 										else{
-											Object[][] datos= ConsultasExcel.creaConsulta(box, botones[i].getText());
+											Object[][] datos= ConsultasExcel.creaConsulta(box, botones[i].getText(), bfecha,(String)boxFecha.getSelectedItem(), tipos);
 											ConsultasExcel.rellenaTabla(tabla, datos, (String)box[0].getSelectedItem(), (String)box[1].getSelectedItem());
 										}
 									}
