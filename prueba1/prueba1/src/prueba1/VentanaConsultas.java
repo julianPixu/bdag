@@ -29,6 +29,7 @@ import Design.Estilo;
 import Design.Metodos;
 import excel.ConsultasExcel;
 import sql.Consultas;
+import xml.CrearGrafica;
 
 public class VentanaConsultas {
 
@@ -270,7 +271,9 @@ public class VentanaConsultas {
 								break;
 							
 							
-							case "CREAR GRÁFICA": break;
+							case "CREAR GRÁFICA": 
+								CrearGrafica.creaGraf();
+								break;
 							case "CANCELAR":	  break;
 						}
 				}});	
