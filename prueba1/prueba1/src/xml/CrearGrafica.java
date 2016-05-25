@@ -7,6 +7,12 @@ import java.io.IOException;
 
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.plaf.ColorUIResource;
+
+import Design.Metodos;
+
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -25,6 +31,9 @@ public class CrearGrafica {
 		
 		try {
 			 UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+			 UIManager.put("OptionPane.background", new ColorUIResource(255,215,0));
+				
+			 UIManager.put("Panel.background", new ColorUIResource(255,215,0));
 			 
 			if(jf1.showSaveDialog(null)==jf1.APPROVE_OPTION){ 
 			ruta = jf1.getSelectedFile().getAbsolutePath()+""; 
@@ -33,6 +42,10 @@ public class CrearGrafica {
 			
 					if(new File(ruta).exists()){
 						
+						Object [] botones= { Metodos.creaBoton("acept.jpg"),
+								 Metodos.creaBoton("cancel.jpg"),
+			                     };
+						
 						 UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 						int seleccion = JOptionPane.showOptionDialog(
 								   null,
@@ -40,8 +53,8 @@ public class CrearGrafica {
 								   "Aviso",
 								   JOptionPane.YES_NO_CANCEL_OPTION,
 								   JOptionPane.QUESTION_MESSAGE,
-								   null,    // null para icono por defecto.
-								   new Object[] { "Si", "No" },   // null para YES, NO y CANCEL
+								  new ImageIcon("imagenes/warning.jpg"),    // null para icono por defecto.
+								   botones,   // null para YES, NO y CANCEL
 								   "opcion 1");
 							
 							if(JOptionPane.OK_OPTION==seleccion){
