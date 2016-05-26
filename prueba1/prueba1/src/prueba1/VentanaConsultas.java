@@ -30,9 +30,13 @@ import Design.Metodos;
 import excel.ConsultasExcel;
 import sql.Consultas;
 import xml.CrearGrafica;
+import xml.ObjetoGraph;
 
 public class VentanaConsultas {
 
+	
+	
+	
 	static JTextField nombreX= new JTextField();
 	static JTextField nombreY= new JTextField();
 	public static boolean bfecha= false;
@@ -40,7 +44,7 @@ public class VentanaConsultas {
 	public static void creaVentana(final String path[],final JTable tabla, final JButton[] botones) {
 		
 		Dimension d= Toolkit.getDefaultToolkit().getScreenSize();
-		JFrame frame= Metodos.creaVentana("CONSULTA", d.width/2, d.height-40);
+		final JFrame frame= Metodos.creaVentana("CONSULTA", d.width/2, d.height-40);
 			frame.setBounds(d.width/2, 0,  d.width/2, d.height-40);
 			frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			frame.setResizable(false);
@@ -272,9 +276,29 @@ public class VentanaConsultas {
 							
 							
 							case "CREAR GRÁFICA": 
-								CrearGrafica.creaGraf();
+								
+								int tip=0;
+								if(rbGraph[1].isSelected()) tip=1;
+								if(rbGraph[2].isSelected()) tip=2;
+								
+								String[] colores= new String[4];
+								for(int i=0; i<cololes.length; i++){
+									String hex = Integer.toHexString(cololes[i].getBackground().getRGB()).substring(2);
+									System.out.println(hex);
+									colores[i]=hex;
+								}
+								for(int i=0; i<botones.length; i++){
+									if(botones[i].getForeground()==Color.GREEN){
+										Object[][] datos= Consultas.creaConsulta(box, botones[i].getText(), bfecha,(String)boxFecha.getSelectedItem(), tipos);
+										ObjetoGraph graf= new ObjetoGraph(tip, nombreX.getText(),nombreY.getText(), colores, size.getText(), datos);
+										CrearGrafica.creaGraf(graf);
+									}
+								}
+								
+								
 								break;
-							case "CANCELAR":	  break;
+								
+							case "CANCELAR":	 frame.dispose();  break;
 						}
 				}});	
 				

@@ -1,13 +1,18 @@
 package xml;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.plaf.ColorUIResource;
+
+import org.apache.commons.io.FileUtils;
 
 import Design.Metodos;
 
@@ -19,7 +24,7 @@ import javax.swing.JOptionPane;
 public class CrearGrafica {
 	
 	
-	public static void creaGraf(){	
+	public static void creaGraf(ObjetoGraph graf){	
 					
 		JFileChooser jf1= new JFileChooser(); 
 		//jf1.setCurrentDirectory(new java.io.File("."));
@@ -61,29 +66,87 @@ public class CrearGrafica {
 								
 							//BufferedWriter out = new BufferedWriter(new FileWriter(ruta));
 								rutaDestino.mkdir();
+								rellenaCarpeta(rutaDestino, graf);
+								
 								
 							}else{
-								creaGraf();
+								
+								creaGraf(graf);
 							}
 											
 					}else
 						rutaDestino.mkdir();
+						rellenaCarpeta(rutaDestino, graf);
+					}
 			
-						}
-			
-				}catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (InstantiationException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (IllegalAccessException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (UnsupportedLookAndFeelException e) {
+				}catch (ClassNotFoundException e) { e.printStackTrace();
+				} catch (InstantiationException e) { e.printStackTrace();
+				} catch (IllegalAccessException e) { e.printStackTrace();
+				} catch (UnsupportedLookAndFeelException e) { e.printStackTrace(); }
+	}
+	
+	
+	public static void rellenaCarpeta(File dirDestino, ObjetoGraph graf){
+		
+		File res= new File("res");
+		
+		if(res.exists()){
+			if(res.isDirectory()){
+				
+				try {
+					FileUtils.copyDirectory(res, dirDestino);
+				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				/*for(File f: res.listFiles()){ 
+					if(f.isDirectory()){
+						File dir= new File(dirDestino.getPath()+"\\"+f.getName());
+						dir.mkdir();
+						for(File f2: f.listFiles()){
+							
+							copiaPega(f2, dir , f2.getName());
+						}
+					
+					}else copiaPega(f, dirDestino, f.getName());
+				}*/
+				
+				String xml= CreahtmlYxml.creaXML(dirDestino.getAbsolutePath()+"\\"+dirDestino.getName(), graf);
+				CreahtmlYxml.creaHtml(dirDestino.getAbsolutePath()+"\\"+dirDestino.getName(), xml, graf.getColores()[0]);
+				
+			}
+		}
 	}
-
+	
+	public static void copiaPega(File origen, File destino, String nuevo){
+		
+		File f= new File(destino.getAbsolutePath()+"\\"+nuevo);
+		
+		if(!f.exists()){
+			
+			try {
+				FileUtils.copyDirectory(origen, f);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			/*try {
+				
+				BufferedReader br= new BufferedReader(new FileReader(origen));
+				BufferedWriter fw= new BufferedWriter(new FileWriter(f));
+				String s;
+				
+				while((s=br.readLine())!=null) fw.write(s);
+				
+				fw.flush();
+				fw.close();
+				br.close();
+			
+			} catch (FileNotFoundException e) { e.printStackTrace();
+			} catch(IOException e){ e.printStackTrace(); }*/
+		}
+	}
+	
+	
 }
