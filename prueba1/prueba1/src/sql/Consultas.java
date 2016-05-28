@@ -14,21 +14,17 @@ import javax.swing.table.DefaultTableModel;
 public class Consultas {
 	
 	
-	public static JComboBox campos(String tabla){
+	public static void campos(JComboBox box, String sql){
 		
-		JComboBox box= new JComboBox();
-		
+		box.removeAllItems();
 		CargaInicial.connect(CargaInicial.getUrl(), CargaInicial.getUser(), CargaInicial.getPswd());
 		Connection c= CargaInicial.getConexion();
 		
 		try {
 			Statement st= c.createStatement();
-			ResultSet rs= st.executeQuery("SELECT * FROM "+tabla);
-			ResultSetMetaData meta= rs.getMetaData();
-			
-			int col= meta.getColumnCount();
-			
-			for(int i=1; i<col+1; i++) box.addItem(meta.getColumnName(i));
+			ResultSet rs= st.executeQuery(sql);
+
+			while(rs.next())box.addItem(rs.getString(1));
 		
 			rs.close();
 			st.close();
@@ -36,27 +32,47 @@ public class Consultas {
 		
 		} catch (SQLException e) {e.printStackTrace(); }
 		
-		return box;
+		
 	}
 
-	public static Object[][] creaConsulta(JComboBox[] box, String table, boolean bfecha, String selectedItem, JRadioButton[] tipos) {
+	public static Object[][] creaConsulta(JComboBox[] box, boolean bfecha, String selectedItem, JRadioButton[] tipos) {
 		
-		Object[][] datos;
+		Object[][] datos= new Object[1][1];
 		String sql= "SELECT ";
+		String[] data= new String[box.length];
+		for(int i=0; i<data.length; i++) data[i]= (String)box[i].getSelectedItem();
 		
 		if(bfecha){
 			switch(selectedItem){
-				case "DIAS":	sql+="FORMAT("+(String)box[0].getSelectedItem()+",\"DD-MM-yyyy\"),"; 	break;
-				case "MESES":	sql+="FORMAT("+(String)box[0].getSelectedItem()+",\"MM-yyyy\"),"; 		break;
-				case "AÑOS":	sql+="FORMAT("+(String)box[0].getSelectedItem()+",\"yyyy\"),";			break;
+				case "DIAS":	sql+="FORMAT("+data[0]+"."+data[1]+",\"DD-MM-yyyy\") AS Fecha,"; 	break;
+				case "MESES":	sql+="FORMAT("+data[0]+"."+data[1]+",\"MM-yyyy\") AS Fecha,"; 		break;
+				case "AÑOS":	sql+="FORMAT("+data[0]+"."+data[1]+",\"yyyy\") AS Fecha,";			break;
 			}		
-		}else sql+= (String)box[0].getSelectedItem()+",";
+		}else sql+= data[0]+"."+data[1]+",";
 		
-		if(tipos[1].isSelected()) sql+= "SUM("+(String)box[1].getSelectedItem()+") AS "+(String)box[1].getSelectedItem()+" ";
-		else if(tipos[2].isSelected()) sql+= "COUNT("+(String)box[1].getSelectedItem()+") AS "+(String)box[1].getSelectedItem()+" ";
-		else sql+= (String)box[1].getSelectedItem()+" ";	 
+		if(tipos[1].isSelected()) sql+= "SUM("+data[3]+") AS "+data[3]+" ";
+		else if(tipos[2].isSelected()) sql+= "COUNT("+data[3]+") AS "+data[3]+" ";
+		else sql+= data[3]+" ";	 
 		
-		sql+= "FROM "+table+" GROUP BY "+(String)box[1].getSelectedItem()+" ORDER BY "+(String)box[1].getSelectedItem()+";";
+		if(data[0].equals(data[2])) sql+= "FROM "+data[0]+" GROUP BY "+data[1]+" ORDER BY "+data[1]+";";
+		else{
+			
+			boolean join= false;
+			for(int i=0; i< box[1].getItemCount(); i++){
+				String campo= (String)box[1].getItemAt(i);
+				for(int j=0;j<box[3].getItemCount(); j++){
+					
+					String campo2=(String)box[3].getItemAt(j);
+					if(campo.equals(campo2)){
+						join= true;
+						sql+= "FROM "+data[0]+","+data[2]+" WHERE "+data[0]+"."+campo+"="+data[2]+"."+campo+" GROUP BY "+campo+" ORDER BY "+campo+";";
+					}
+				}
+			}
+			
+		}
+		
+		System.out.println(sql);
 		
 		CargaInicial.connect(CargaInicial.getUrl(), CargaInicial.getUser(), CargaInicial.getPswd());
 		Connection c= CargaInicial.getConexion();
@@ -86,6 +102,7 @@ public class Consultas {
 		}catch(SQLException e){e.printStackTrace(); datos= new Object[1][2];}
 		
 		return datos;
+		
 	}
 	
 	public static void rellenaTabla( JTable tabla,Object[][] datos, String x, String y){
