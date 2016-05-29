@@ -161,6 +161,8 @@ public class VentanaConsultas {
 			System.out.println(path[0]);
 			if(path[0].endsWith("sql")){
 				Consultas.campos(box[i], "SELECT TABLE_NAME FROM information_schema.tables WHERE table_schema='"+path[0].replace(".sql", "")+"';");
+			}else{
+				ConsultasExcel.campos(box[i], null, true);
 			}
 			box[i].setBounds(260, ((i/2)*140)+110, 200, 30);
 			box[i+1].setBounds(560, ((i/2)*140)+110, 200, 30);
@@ -176,21 +178,12 @@ public class VentanaConsultas {
 					if(box[I].hasFocus()){
 						
 						if(path[0].endsWith("sql")) Consultas.campos(box[I+1],"SHOW COLUMNS FROM "+(String)box[I].getSelectedItem()+";");
-						
+						else ConsultasExcel.campos(box[I+1],(String)box[I].getSelectedItem(), false);
 					}
 				}
 				
 			});
 		}
-		
-		/*	else box[i]=ConsultasExcel.campos(botones[i].getText());
-					box[i].setBounds(100, 110, 200, 30);
-					frame.add(box[i]);
-					
-		if(path[0].endsWith("sql"))box[1]=Consultas.campos(botones[i].getText());
-				else box[1]=ConsultasExcel.campos(botones[i].getText());
-					box[1].setBounds(100, 250, 200, 30);
-					frame.add(box[1]);*/
 				
 		
 		
@@ -313,8 +306,6 @@ public class VentanaConsultas {
 						switch(e.getActionCommand()){
 						
 							case "CONSULTAR":
-								for(int i=0; i<botones.length; i++){
-									if(botones[i].getForeground()==Color.GREEN){
 										if(path[0].endsWith("sql")){
 											
 											Object[][] datos= Consultas.creaConsulta(box,  bfecha,(String)boxFecha.getSelectedItem(), tipos);
@@ -322,13 +313,11 @@ public class VentanaConsultas {
 										}
 																	
 										else{
-											Object[][] datos= ConsultasExcel.creaConsulta(box, botones[i].getText(), bfecha,(String)boxFecha.getSelectedItem(), tipos);
+											Object[][] datos= ConsultasExcel.creaConsulta(box, bfecha,(String)boxFecha.getSelectedItem(), tipos);
 											ConsultasExcel.rellenaTabla(tabla, datos, (String)box[0].getSelectedItem(), (String)box[1].getSelectedItem());
 										}
-									}
-								}
-								break;
-							
+								
+										break;
 							
 							case "CREAR GRÁFICA": 
 								
@@ -342,13 +331,11 @@ public class VentanaConsultas {
 									System.out.println(hex);
 									colores[i]=hex;
 								}
-								for(int i=0; i<botones.length; i++){
-									if(botones[i].getForeground()==Color.GREEN){
-										Object[][] datos= Consultas.creaConsulta(box, bfecha,(String)boxFecha.getSelectedItem(), tipos);
-										ObjetoGraph graf= new ObjetoGraph(tip, nombreX.getText(),nombreY.getText(), colores, size.getText(), datos);
-										CrearGrafica.creaGraf(graf);
-									}
-								}
+								
+								Object[][] datos= Consultas.creaConsulta(box, bfecha,(String)boxFecha.getSelectedItem(), tipos);
+								ObjetoGraph graf= new ObjetoGraph(tip, nombreX.getText(),nombreY.getText(), colores, size.getText(), datos);
+								CrearGrafica.creaGraf(graf);
+								
 								
 								
 								break;

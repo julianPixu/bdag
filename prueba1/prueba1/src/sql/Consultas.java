@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -99,8 +100,14 @@ public class Consultas {
 			st.close();
 			CargaInicial.disconnect();
 			
+			
 		}catch(SQLException e){e.printStackTrace(); datos= new Object[1][2];}
 		
+		if(!checkNum(datos[0][1], tipos)){
+			JOptionPane.showMessageDialog(null, "Porfavor escoja un campo numérico si quiere hacer valor/sumatorio");
+			datos= new Object[1][2];
+		}
+	
 		return datos;
 		
 	}
@@ -110,6 +117,20 @@ public class Consultas {
 		String[] tit={x,y};
 		tabla.setModel(new DefaultTableModel(datos,tit));
 		
+	}
+	
+	public static boolean checkNum(Object o, JRadioButton[] tipos){
+		
+		try{
+			if(tipos[0].isSelected()|| tipos[1].isSelected()){
+				
+				if((int)o>0) return true;
+			
+			}else return true;
+			
+		}catch(ClassCastException e){ return false;}
+		
+		return false;
 	}
 
 }

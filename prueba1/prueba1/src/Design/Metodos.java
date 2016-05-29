@@ -27,6 +27,7 @@ import javax.swing.JTextArea;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 
+import prueba1.Ventana2;
 import prueba1.VentanaConsultas;
 
 /**Esta clase contiene los métodos genéricos para aplicar en la app
@@ -165,7 +166,7 @@ public class Metodos {
 					public void actionPerformed(ActionEvent arg0) {
 						
 						switch(I){
-						case 0: JOptionPane.showMessageDialog(null, "SOY EL BOTON NUEVO"); 	break;
+						case 0: Ventana2.main(null); 	break;
 						case 1: VentanaConsultas.creaVentana(path, tabla, botones);	 		break;
 						case 2: JOptionPane.showMessageDialog(null, "SAYONARA BABY"); 		break;
 						}
